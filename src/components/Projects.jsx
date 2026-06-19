@@ -1,5 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
+import { useNavigate } from 'react-router-dom';
 
 const statusColor = {
   "Complété": { bg: '#dcfce7', color: '#16a34a' },
@@ -8,6 +9,8 @@ const statusColor = {
 };
 
 export default function Projects() {
+  const navigate = useNavigate();
+
   return (
     <section id="projects" style={{ padding: '80px 24px', background: '#fff' }}>
       <div style={{ maxWidth: 1100, margin: '0 auto' }}>
@@ -22,7 +25,16 @@ export default function Projects() {
             return (
               <div key={i} style={{ background: '#FDF8F5', borderRadius: 20, padding: 24,
                 border: '1px solid #F9E8E8', display: 'flex', flexDirection: 'column',
-                justifyContent: 'space-between', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+                justifyContent: 'space-between', boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+                transition: 'transform 0.2s, box-shadow 0.2s' }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)';
+                  e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04)';
+                }}>
                 <div>
                   <span style={{ background: sc.bg, color: sc.color,
                     fontSize: 12, fontWeight: 600, padding: '4px 12px', borderRadius: 50 }}>
@@ -42,10 +54,24 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-                <a href={project.github} target="_blank" rel="noreferrer"
-                  style={{ color: '#C96B6B', fontWeight: 600, fontSize: 14, textDecoration: 'none' }}>
-                  🔗 Voir sur GitHub
-                </a>
+
+                {/* Boutons */}
+                <div style={{ display: 'flex', gap: 12, marginTop: 8 }}>
+                  <button
+                    onClick={() => navigate(`/projet/${project.id}`)}
+                    style={{ flex: 1, background: 'linear-gradient(to right, #C96B6B, #9B72CF)',
+                      color: '#fff', border: 'none', padding: '10px 16px',
+                      borderRadius: 50, cursor: 'pointer', fontWeight: 600,
+                      fontSize: 13 }}>
+                    🔍 Voir détails
+                  </button>
+                  <a href={project.github} target="_blank" rel="noreferrer"
+                    style={{ flex: 1, textAlign: 'center', border: '2px solid #C96B6B',
+                      color: '#C96B6B', padding: '10px 16px', borderRadius: 50,
+                      fontWeight: 600, fontSize: 13, textDecoration: 'none' }}>
+                    🔗 GitHub
+                  </a>
+                </div>
               </div>
             );
           })}
