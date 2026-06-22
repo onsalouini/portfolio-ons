@@ -79,15 +79,19 @@ export default function ProjectDetail() {
             color: '#2D2D2D', marginBottom: 20 }}>🎬 Démonstration</h2>
 
           {project.video ? (
-            <div style={{ borderRadius: 20, overflow: 'hidden',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}>
-              <video controls style={{ width: '100%', maxHeight: 500,
-                background: '#000', display: 'block' }}>
-                <source src={project.video} type="video/mp4" />
-                Votre navigateur ne supporte pas la vidéo.
-              </video>
-            </div>
-          ) : (
+  <div style={{ borderRadius: 20, overflow: 'hidden',
+    boxShadow: '0 8px 32px rgba(0,0,0,0.12)', position: 'relative',
+    paddingBottom: '56.25%', height: 0 }}>
+    <iframe
+      src={`https://www.youtube.com/embed/${project.video}`}
+      title={project.title}
+      style={{ position: 'absolute', top: 0, left: 0,
+        width: '100%', height: '100%', border: 'none' }}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+) : (
             <div style={{ background: '#fff', borderRadius: 20, padding: 48,
               textAlign: 'center', border: '2px dashed #E8A0A0' }}>
               <div style={{ fontSize: 48, marginBottom: 12 }}>🎬</div>

@@ -28,7 +28,7 @@ export const portfolioData = {
       description: "Pipeline Deep Learning pour la détection de tumeurs cérébrales (EfficientNetB4, 95.71% accuracy) et histopathologie mammaire (89.15% accuracy). Déployé via FastAPI + Streamlit.",
       longDescription: "MedVision AI est un système de détection médicale basé sur le Deep Learning. Il comprend deux modules : la classification de tumeurs cérébrales avec EfficientNetB4 atteignant 95.71% de précision et un ROC-AUC de 0.98, et la détection histopathologique mammaire avec un CNN résiduel personnalisé atteignant 89.15% de précision. Déployé via FastAPI avec interface Streamlit et compatibilité DICOM/PACS.",
       tech: ["PyTorch", "EfficientNetB4", "FastAPI", "Streamlit", "DICOM"],
-      github: "https://github.com/onsalouini",
+      github: "https://github.com/onsalouini/Tumeurs_Detection",
       video: "/videos/medvision-ai.mp4",
       status: "Complété",
       features: [
@@ -46,8 +46,8 @@ export const portfolioData = {
       description: "Plateforme RH intelligente utilisant RoBERTa-based NLP pour scorer et classer automatiquement les CVs.",
       longDescription: "ForsaTech est une plateforme de recrutement intelligente présentée au Bal des Projets 2026 à ESPRIM. Elle utilise RoBERTa pour analyser et scorer automatiquement les CVs des candidats, les classer selon les offres d'emploi, et générer des rapports de compatibilité détaillés.",
       tech: ["RoBERTa", "NLP", "Python", "FastAPI", "React"],
-      github: "https://github.com/onsalouini",
-      video: "/videos/forsatech.mp4",
+      github: "https://github.com/BoutheinaRj/forsatech",
+      video: "6nfTJmsfdu0",  // ← juste l'ID YouTube
       status: "Prêt",
       features: [
         "Scoring automatique des CVs avec RoBERTa",
@@ -81,7 +81,7 @@ export const portfolioData = {
       description: "Modèle YOLOv8 entraîné sur radiographies médicales dentaires. mAP ~88–92%.",
       longDescription: "Système de détection d'anomalies dentaires basé sur YOLOv8, entraîné sur des radiographies médicales. Pipeline complet incluant collecte, annotation, augmentation et entraînement. Le modèle atteint un mAP de 88-92% sur le jeu de test.",
       tech: ["YOLOv8", "OpenCV", "PyTorch", "Python"],
-      github: "https://github.com/onsalouini",
+      github: "https://github.com/onsalouini/Diagnostic_Dentaire",
       video: "/videos/dental-vision.mp4",
       status: "Complété",
       features: [
@@ -92,6 +92,44 @@ export const portfolioData = {
         "Export vers formats déployables"
       ]
     },
+    {
+  "id": "rh-platform",
+  "title": "Plateforme RH - Gestion des Ressources Humaines",
+  "description": "Application web full-stack de gestion RH centralisée (employés, départements, projets, présence) développée avec Symfony + Angular.",
+  "longDescription": "Dans le cadre de mon stage ouvrier chez FORVERMO Group, j'ai conçu et développé une plateforme web complète de gestion des ressources humaines. L'objectif était de remplacer la gestion manuelle sur Excel par une solution digitalisée, sécurisée et centralisée. L'application permet aux administrateurs de gérer les employés, départements, projets et présences via un tableau de bord intuitif, et aux employés de gérer leur profil, leurs projets et leur pointage quotidien. L'architecture repose sur une séparation frontend/backend avec Angular pour l'interface et Symfony pour l'API REST, sécurisée par authentification JWT.",
+  "tech": ["Symfony", "Angular", "MySQL", "JWT", "Doctrine ORM", "WAMP", "TypeScript", "REST API"],
+  "github": "https://github.com/onsalouini/projet_stage",
+  "video": "",
+  "status": "Complété",
+  "features": [
+    "Authentification sécurisée JWT (rôles admin/employé)",
+    "Gestion complète des employés, départements et projets (CRUD)",
+    "Système de pointage quotidien avec horodatage automatique",
+    "Tableau de bord administrateur avec statistiques globales (taux de présence, effectifs, projets)",
+    "Interface employé : modification de profil, dépôt de projet, pointage",
+    "Architecture RESTful Angular ↔ Symfony avec gestion des CORS",
+    "Base de données relationnelle MySQL avec Doctrine ORM"
+  ]
+},
+{
+  "id": "livraisonapp",
+  "title": "LivraisonApp - Système de Gestion de Livraison",
+  "description": "Plateforme web de gestion de livraisons avec suivi des colis, gestion des clients/livreurs et tableau de bord administrateur.",
+  "longDescription": "LivraisonApp est une application web développée en ASP.NET Core MVC pour la gestion complète d'un service de livraison. La plateforme permet aux administrateurs de gérer les colis, les clients, les livreurs et les véhicules via une interface intuitive. Le système intègre un système d'authentification par rôles (Admin/User), un tableau de bord avec des statistiques de revenus et le suivi en temps réel des colis. Ce projet d'équipe m'a permis de mettre en pratique les principes du développement full-stack avec le framework .NET et une architecture MVC robuste.",
+  "tech": ["ASP.NET Core MVC", "C#", "Entity Framework Core", "Identity", "SQLite", "Bootstrap", "HTML", "CSS", "JavaScript"],
+  "github": "https://github.com/onsalouini/Livraison",
+  "video": "",
+  "status": "Complété",
+  "features": [
+    "Opérations CRUD complètes pour les colis, clients, livreurs et véhicules",
+    "Authentification sécurisée avec ASP.NET Core Identity et gestion des rôles (Admin/User)",
+    "Tableau de bord administrateur avec statistiques et visualisation des revenus",
+    "Upload d'images pour les colis",
+    "Architecture MVC avec Entity Framework Core pour l'accès aux données",
+    "Base de données SQLite pour un déploiement léger",
+    "Interface responsive avec Bootstrap"
+  ]
+},
     
     {
       id: "makogpath",
@@ -132,14 +170,15 @@ export const portfolioData = {
       degree: "Cycle d'Ingénieur — Data Science & IA",
       school: "ESPRIM – École Supérieure Privée d'Ingénierie et de Technologies",
       location: "Monastir, Tunisie",
-      period: "Sept. 2024 — Présent",
-      highlight: "Admission au Concours National d'entrée aux Écoles d'Ingénieurs 2025",
+      period: "Sept. 2024 — Présent",highlight: "Majeur de promotion",
+      
     },
     {
       degree: "Cycle Préparatoire — Filière Physique-Chimie",
       school: "Faculté des Sciences de Monastir (FSM)",
       location: "Monastir, Tunisie",
       period: "Sept. 2022 — Juin 2024",
+      highlight: "Admission au Concours National d'entrée aux Écoles d'Ingénieurs 2025",
     },
     {
       degree: "Baccalauréat Sciences Expérimentales",
@@ -185,5 +224,18 @@ export const portfolioData = {
       skills: ["Web3", "HTS Tokens", "Supply Chain", "Consensus", "DLT Business"],
       nft: true,
     },
+    {
+  "title": "Insight Cybersecurity Hackathon — Certificate of Participation",
+  "issuer": "IEEE ESPRIM Student Branch",
+  "date": "Novembre 2025",
+  "image": null,
+  "pdf": "/certifs/insight-cybersecurity-hackathon.pdf",
+  "link": "https://ieee-esprim.org",
+  "badge": "🛡️",
+  "duration": "2 jours",
+  "description": "Participation au hackathon dédié à la cybersécurité organisé par la branche étudiante IEEE ESPRIM, axé sur la résolution de défis pratiques en sécurité informatique et le travail en équipe.",
+  "skills": ["Cybersécurité", "Sécurité informatique", "Travail d'équipe", "Résolution de problèmes"],
+  "nft": false
+}
   ],
 };

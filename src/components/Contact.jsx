@@ -2,9 +2,10 @@ import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { portfolioData } from '../data/portfolioData';
 
-const SERVICE_ID = 'service_r5p9p7e';    // ← remplace
-const TEMPLATE_ID = 'template_m414wdu'; // ← remplace
-const PUBLIC_KEY = 'EXTbFDV0ngaZ8OfJq';    // ← remplace
+// ✅ TES CLÉS EMAILJS (mises à jour)
+const SERVICE_ID = 'service_r5p9p7e';
+const TEMPLATE_ID = 'template_yw8hpzr';  // ← NOUVEAU template ID
+const PUBLIC_KEY = 'EXTbFDV0ngaZ8OfJq';
 
 export default function Contact() {
   const { email, phone, github, linkedin, cv } = portfolioData.personal;
@@ -14,18 +15,36 @@ export default function Contact() {
 
   const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async () => {
-    if (!form.name || !form.email || !form.message) return;
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // ← Empêche le rechargement de la page
+    
+    // Validation
+    if (!form.name || !form.email || !form.message) {
+      setStatus('error');
+      return;
+    }
+
     setStatus('sending');
+
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-        from_name: form.name,
-        from_email: form.email,
-        message: form.message,
-      }, PUBLIC_KEY);
+      // Envoi du formulaire via EmailJS
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        PUBLIC_KEY
+      );
+
+      console.log('✅ Email envoyé avec succès:', result.text);
       setStatus('sent');
       setForm({ name: '', email: '', message: '' });
-    } catch (err) {
+      
+    } catch (error) {
+      console.error('❌ Erreur EmailJS:', error);
       setStatus('error');
     }
   };
@@ -105,7 +124,7 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div>
                   <label style={{ fontSize: 13, fontWeight: 600, color: '#2D2D2D',
                     display: 'block', marginBottom: 6 }}>Votre nom *</label>
@@ -149,12 +168,12 @@ export default function Contact() {
                 </div>
 
                 {status === 'error' && (
-                  <p style={{ color: '#ef4444', fontSize: 13 }}>
-                    ❌ Erreur lors de l'envoi. Réessayez ou contactez-moi directement.
+                  <p style={{ color: '#ef4444', fontSize: 13, margin: 0 }}>
+                    ❌ Erreur lors de l'envoi. Vérifiez votre connexion ou contactez-moi directement.
                   </p>
                 )}
 
-                <button onClick={handleSubmit}
+                <button type="submit"
                   disabled={status === 'sending'}
                   style={{ background: status === 'sending'
                     ? '#ccc' : 'linear-gradient(to right, #C96B6B, #9B72CF)',
@@ -164,7 +183,7 @@ export default function Contact() {
                     transition: 'opacity 0.2s' }}>
                   {status === 'sending' ? '⏳ Envoi en cours...' : 'Envoyer ✨'}
                 </button>
-              </div>
+              </form>
             )}
           </div>
         </div>
