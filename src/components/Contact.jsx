@@ -9,7 +9,7 @@ const PUBLIC_KEY = 'EXTbFDV0ngaZ8OfJq';
 
 export default function Contact() {
   const { email, phone, github, linkedin, cv } = portfolioData.personal;
-  const formRef = useRef(null);
+  //const formRef = useRef(null);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 

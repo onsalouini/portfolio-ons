@@ -10,7 +10,7 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import ProjectDetail from './components/ProjectDetail';
 import Certifications from './components/Certifications';
-import { portfolioData } from './data/portfolioData';
+
 function Home() {
   return (
     <div>

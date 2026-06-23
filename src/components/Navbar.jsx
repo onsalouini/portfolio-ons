@@ -188,8 +188,9 @@ export default function Navbar() {
         }}>
           {navLinks.map(link => (
             <button key={link.to} onClick={() => scrollTo(link.to)}
-              style={{ display: 'block', width: '100%', textAlign: 'left',
-                background: 'none', border: 'none', cursor: 'pointer',
+              style={{
+                display: 'block', width: '100%', textAlign: 'left',
+                border: 'none', cursor: 'pointer',
                 padding: '12px 16px', fontSize: 15, fontWeight: 500,
                 color: active === link.to ? '#C96B6B' : '#444',
                 borderRadius: 12, marginBottom: 4,
