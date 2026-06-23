@@ -29,7 +29,8 @@ export const portfolioData = {
       longDescription: "MedVision AI est un système de détection médicale basé sur le Deep Learning. Il comprend deux modules : la classification de tumeurs cérébrales avec EfficientNetB4 atteignant 95.71% de précision et un ROC-AUC de 0.98, et la détection histopathologique mammaire avec un CNN résiduel personnalisé atteignant 89.15% de précision. Déployé via FastAPI avec interface Streamlit et compatibilité DICOM/PACS.",
       tech: ["PyTorch", "EfficientNetB4", "FastAPI", "Streamlit", "DICOM"],
       github: "https://github.com/onsalouini/Tumeurs_Detection",
-      video: "/videos/medvision-ai.mp4",
+      video: "6nfTJmsfdu0",  // ← juste l'ID YouTube
+    
       status: "Complété",
       features: [
         "Classification de tumeurs cérébrales — 95.71% accuracy",
@@ -47,7 +48,7 @@ export const portfolioData = {
       longDescription: "ForsaTech est une plateforme de recrutement intelligente présentée au Bal des Projets 2026 à ESPRIM. Elle utilise RoBERTa pour analyser et scorer automatiquement les CVs des candidats, les classer selon les offres d'emploi, et générer des rapports de compatibilité détaillés.",
       tech: ["RoBERTa", "NLP", "Python", "FastAPI", "React"],
       github: "https://github.com/BoutheinaRj/forsatech",
-      video: "6nfTJmsfdu0",  // ← juste l'ID YouTube
+      video: "",  // ← juste l'ID YouTube
       status: "Prêt",
       features: [
         "Scoring automatique des CVs avec RoBERTa",
@@ -64,7 +65,7 @@ export const portfolioData = {
       longDescription: "MLOps HeartAI couvre un pipeline MLOps complet en 7 ateliers : exploration Jupyter, modularisation du code, Makefile, FastAPI, MLflow pour le tracking, Docker pour la conteneurisation, et Elasticsearch/Kibana pour le monitoring. Étendu avec pytest et CI/CD via GitHub Actions.",
       tech: ["MLflow", "Docker", "FastAPI", "GitHub Actions", "Kibana"],
       github: "https://github.com/onsalouini/mlops-heartai",
-      video: "",
+      video: "rIqEtz8OiZg",
       status: "Complété",
       features: [
         "Pipeline MLOps en 7 ateliers",
@@ -82,7 +83,7 @@ export const portfolioData = {
       longDescription: "Système de détection d'anomalies dentaires basé sur YOLOv8, entraîné sur des radiographies médicales. Pipeline complet incluant collecte, annotation, augmentation et entraînement. Le modèle atteint un mAP de 88-92% sur le jeu de test.",
       tech: ["YOLOv8", "OpenCV", "PyTorch", "Python"],
       github: "https://github.com/onsalouini/Diagnostic_Dentaire",
-      video: "/videos/dental-vision.mp4",
+      video: "",
       status: "Complété",
       features: [
         "Détection en temps réel sur radiographies",
