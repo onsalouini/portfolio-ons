@@ -23,3 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 "public/videos/" 
 "public/videos/*.mp4" 
+"public/videos/" 
