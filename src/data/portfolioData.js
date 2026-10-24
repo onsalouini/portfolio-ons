@@ -458,13 +458,46 @@ export const education = [
 ];
 
 export const certifications = [
-  { title: 'Hedera Certified Developer Associate (HCDA)', issuer: 'Hedera' },
-  { title: 'Hedera Certified Foundation — Technical (HCF)', issuer: 'Hedera', pdf: '/certifs/hedera-hcf.pdf' },
-  { title: 'Hedera Business Foundation (HBF)', issuer: 'Hedera', pdf: '/certifs/hedera-hbf.pdf' },
+  {
+    title: 'Hedera Certified Developer Associate (HCDA)',
+    issuer: 'The Hashgraph Association',
+    date: { fr: 'Juin 2026', en: 'Jun 2026' },
+    pdf: '/certifs/hedera-hcda.pdf',
+    thumb: '/certifs/thumbs/hcda.jpg',
+    featured: true,
+  },
+  {
+    title: 'Hedera Certified Foundation — Technical (HCF)',
+    issuer: 'The Hashgraph Association',
+    date: { fr: 'Juin 2026', en: 'Jun 2026' },
+    pdf: '/certifs/hedera-hcf.pdf',
+    thumb: '/certifs/thumbs/hcf.jpg',
+    featured: true,
+  },
+  { title: 'Hedera Business Foundation (HBF)', issuer: 'The Hashgraph Association' },
   { title: 'Getting Started with AI on Jetson Nano', issuer: 'NVIDIA Deep Learning Institute' },
   { title: 'AI Fluency: Framework & Foundations', issuer: 'Anthropic' },
   { title: 'AI Fundamentals: Foundations for Understanding AI', issuer: { fr: 'Formation en ligne', en: 'Online course' } },
-  { title: 'Insight Cybersecurity Hackathon', issuer: { fr: 'IEEE ESPRIM · participante, nov. 2025', en: 'IEEE ESPRIM · participant, Nov 2025' } },
+];
+
+export const activities = [
+  {
+    title: { fr: 'Bal des Projets ESPRIM 2026', en: "ESPRIM's Bal des Projets 2026" },
+    role: { fr: 'Projet sélectionné et présenté : ForsaTech', en: 'Selected and presented project: ForsaTech' },
+    text: {
+      fr: "ForsaTech, notre plateforme de recrutement qui analyse les CV avec RoBERTa, a été sélectionnée pour le Bal des Projets ESPRIM 2026, où nous l'avons présentée en équipe.",
+      en: "ForsaTech, our recruitment platform that parses CVs with RoBERTa, was selected for ESPRIM's Bal des Projets 2026, where we presented it as a team.",
+    },
+    projectId: 'forsatech',
+  },
+  {
+    title: 'Insight Cybersecurity Hackathon',
+    role: { fr: 'Participante · IEEE ESPRIM Student Branch · nov. 2025', en: 'Participant · IEEE ESPRIM Student Branch · Nov 2025' },
+    text: {
+      fr: 'Deux jours de défis pratiques en sécurité informatique, résolus en équipe.',
+      en: 'Two days of hands-on security challenges, solved as a team.',
+    },
+  },
 ];
 
 export const languages = [

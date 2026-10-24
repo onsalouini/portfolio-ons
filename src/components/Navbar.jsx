@@ -5,7 +5,7 @@ import { personal } from '../data/portfolioData';
 import monogram from '../assets/monogram.png';
 import { Download, Menu, Close, Sun, Moon } from './Icons';
 
-const SECTIONS = ['experience', 'projects', 'skills', 'education', 'contact'];
+const SECTIONS = ['experience', 'projects', 'skills', 'education', 'certifications', 'contact'];
 
 function currentTheme() {
   const set = document.documentElement.getAttribute('data-theme');

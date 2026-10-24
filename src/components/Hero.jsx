@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 import { personal } from '../data/portfolioData';
 import photo from '../assets/photo.jpg';
+import monogram from '../assets/monogram.png';
 import { Download, GitHub, LinkedIn, Mail, Pin, ArrowUpRight } from './Icons';
 
 const STACK = ['Python', 'PyTorch', 'TensorFlow', 'scikit-learn', 'XGBoost', 'LightGBM', 'SHAP', 'Hugging Face',
@@ -27,9 +28,15 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="tile b-photo">
-          <img src={photo} alt={t.hero.photoAlt} width="960" height="1280" />
-        </div>
+        <figure className="b-photo-wrap">
+          <div className="tile b-photo">
+            <img src={photo} alt={t.hero.photoAlt} width="960" height="1280" />
+          </div>
+          <figcaption className="photo-caption">
+            <img src={monogram} alt="" width="40" height="28" />
+            <span><strong>{personal.name}</strong>Data &amp; AI Engineer</span>
+          </figcaption>
+        </figure>
 
         <div className="tile b-avail">
           <p className="tile-label"><span className="status-dot" aria-hidden="true" />{t.hero.availableTitle}</p>

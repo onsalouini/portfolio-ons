@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLang } from '../context/LanguageContext';
-import { education, certifications, languages, softSkills } from '../data/portfolioData';
-import { Award } from './Icons';
+import { education, languages, softSkills } from '../data/portfolioData';
 
 export default function Education() {
   const { t, tr } = useLang();
@@ -33,21 +32,6 @@ export default function Education() {
               <h3>{t.education.softSkills}</h3>
               <ul className="tags">{tr(softSkills).map(s => <li key={s}>{s}</li>)}</ul>
             </div>
-          </div>
-          <div className="tile certs reveal">
-            <h3 style={{ fontSize: '1.15rem', marginBottom: 14 }}>{t.education.certifications}</h3>
-            <ul className="cert-list">
-              {certifications.map(c => (
-                <li key={c.title}>
-                  <span className="badge" aria-hidden="true"><Award /></span>
-                  <div>
-                    <strong>{c.title}</strong>
-                    <span>{tr(c.issuer)}</span>
-                    {c.pdf && <div><a className="text-link" href={c.pdf} target="_blank" rel="noreferrer">{t.education.viewPdf}</a></div>}
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>
