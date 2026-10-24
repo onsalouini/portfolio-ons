@@ -64,8 +64,11 @@ export default function Hero() {
           </p>
           <h1 aria-label={personal.name}>
             {letters.map((ch, i) => (
-              <span key={i} className="letter" aria-hidden="true" style={{ '--i': i }}>{ch === ' ' ? ' ' : ch}</span>
+              <span key={i} className="letter" aria-hidden="true" style={{ '--i': i }}>{ch === ' ' ? '\u00a0' : ch}</span>
             ))}
+            <span className="name-shine" aria-hidden="true">
+              {letters.map((ch, i) => <span key={i}>{ch === ' ' ? '\u00a0' : ch}</span>)}
+            </span>
           </h1>
           <p className="hero-headline stagger" style={{ '--d': '450ms' }}>{tr(personal.headline)}</p>
           <p className="hero-intro stagger" style={{ '--d': '600ms' }}>{tr(personal.intro)}</p>
@@ -87,6 +90,11 @@ export default function Hero() {
         </div>
 
         <figure className="portrait" ref={portrait}>
+          <div className="sparkles" aria-hidden="true">
+            {[0, 1, 2, 3, 4, 5].map(n => (
+              <svg key={n} className={`spark s${n}`} viewBox="0 0 24 24"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z" /></svg>
+            ))}
+          </div>
           <div className="portrait-arch">
             <img src={photo} alt={t.hero.photoAlt} width="960" height="1280" />
           </div>

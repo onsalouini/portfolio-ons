@@ -46,20 +46,38 @@ export default function Navbar() {
   const prefix = pathname === '/' ? '' : '/';
   const bar = useRef(null);
 
+  const [active, setActive] = useState('');
+  const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
-    const onScroll = () => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (bar.current) bar.current.style.setProperty('--p', max > 0 ? Math.min(window.scrollY / max, 1) : 0);
+      setScrolled(window.scrollY > 24);
+      if (pathname !== '/') { setActive(''); return; }
+      // the active section is the last one whose top has passed 40% of the screen
+      const line = window.innerHeight * 0.4;
+      let current = '';
+      SECTIONS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      });
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = 'contact';
+      setActive(current);
     };
-    onScroll();
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); if (frame) cancelAnimationFrame(frame); };
   }, [pathname]);
 
   return (
-    <header className="nav">
+    <header className="nav" data-scrolled={scrolled}>
       <div className="nav-pill">
+        <div className="scroll-progress" ref={bar} aria-hidden="true" />
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
           <img src={monogram} alt="" width="40" height="28" />
           <span>{personal.name}</span>
@@ -67,7 +85,9 @@ export default function Navbar() {
         <nav aria-label="Navigation">
           <ul className="nav-links">
             {SECTIONS.map(id => (
-              <li key={id}><a href={`${prefix}#${id}`}>{t.nav[id]}</a></li>
+              <li key={id}>
+                <a href={`${prefix}#${id}`} aria-current={active === id ? 'true' : undefined}>{t.nav[id]}</a>
+              </li>
             ))}
           </ul>
         </nav>
@@ -86,12 +106,11 @@ export default function Navbar() {
       <div id="mobile-menu" className="mobile-menu" data-open={open}>
         <ul>
           {SECTIONS.map(id => (
-            <li key={id}><a href={`${prefix}#${id}`} onClick={() => setOpen(false)}>{t.nav[id]}</a></li>
+            <li key={id}><a href={`${prefix}#${id}`} aria-current={active === id ? "true" : undefined} onClick={() => setOpen(false)}>{t.nav[id]}</a></li>
           ))}
           <li><a href={personal.cv} download="CV_Ons_Alouini.pdf">{t.hero.downloadCV}</a></li>
         </ul>
       </div>
-      <div className="scroll-progress" ref={bar} aria-hidden="true" />
     </header>
   );
 }
