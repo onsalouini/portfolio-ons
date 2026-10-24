@@ -37,17 +37,17 @@ export default function Contact() {
   };
 
   return (
-    <section className="section contact" id="contact">
+    <section className="section" id="contact">
       <div className="wrap">
-      <div className="contact-card reveal">
+      <div className="tile contact-tile reveal">
         <div>
           <h2>{t.contact.title}</h2>
           <p className="contact-lead">{t.contact.lead}</p>
           <ul className="contact-direct" aria-label={t.contact.direct}>
-            <li><a href={`mailto:${personal.email}`}><span className="icon-bubble"><Mail /></span>{personal.email}</a></li>
-            <li><a href={`tel:${personal.phone.replace(/\s/g, '')}`}><span className="icon-bubble"><Phone /></span>{personal.phone}</a></li>
-            <li><a href={personal.linkedin} target="_blank" rel="noreferrer"><span className="icon-bubble"><LinkedIn /></span>LinkedIn</a></li>
-            <li><a href={personal.github} target="_blank" rel="noreferrer"><span className="icon-bubble"><GitHub /></span>GitHub</a></li>
+            <li><a href={`mailto:${personal.email}`}><span className="bubble"><Mail /></span>{personal.email}</a></li>
+            <li><a href={`tel:${personal.phone.replace(/\s/g, '')}`}><span className="bubble"><Phone /></span>{personal.phone}</a></li>
+            <li><a href={personal.linkedin} target="_blank" rel="noreferrer"><span className="bubble"><LinkedIn /></span>LinkedIn</a></li>
+            <li><a href={personal.github} target="_blank" rel="noreferrer"><span className="bubble"><GitHub /></span>GitHub</a></li>
           </ul>
         </div>
 

@@ -24,6 +24,7 @@ function Home() {
 
   return (
     <>
+      <div className="page-glow" aria-hidden="true"><span className="g1" /><span className="g2" /></div>
       <Navbar />
       <main>
         <Hero />

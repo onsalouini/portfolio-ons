@@ -39,3 +39,33 @@ export const Spark = () => (
 export const Route = () => (
   <svg {...base}><circle cx="6" cy="19" r="2" /><circle cx="18" cy="5" r="2" /><path d="M6 17V9a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v6a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V7" /></svg>
 );
+export const Sun = () => (
+  <svg {...base}><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
+);
+export const Moon = () => (
+  <svg {...base}><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" /></svg>
+);
+export const ArrowUpRight = () => (
+  <svg {...base}><path d="M7 17 17 7" /><path d="M8 7h9v9" /></svg>
+);
+export const Award = () => (
+  <svg {...base}><circle cx="12" cy="9" r="5.5" /><path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7" /></svg>
+);
+
+// Large decorative glyphs for project covers, one per domain
+const glyph = { viewBox: '0 0 120 120', fill: 'none', stroke: 'currentColor', strokeWidth: 3, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true, className: 'glyph' };
+export const GlyphML = () => (
+  <svg {...glyph}><path d="M14 100h92" /><rect x="22" y="62" width="14" height="38" rx="4" /><rect x="46" y="42" width="14" height="58" rx="4" /><rect x="70" y="52" width="14" height="48" rx="4" /><path d="M18 50 42 30l22 12 34-26" /><circle cx="98" cy="16" r="5" /></svg>
+);
+export const GlyphNLP = () => (
+  <svg {...glyph}><path d="M16 26a10 10 0 0 1 10-10h56a10 10 0 0 1 10 10v34a10 10 0 0 1-10 10H48L30 86V70h-4a10 10 0 0 1-10-10z" /><path d="M32 36h44M32 50h28" /><path d="M86 82h10a8 8 0 0 0 8-8V52" /><path d="M96 82v16l-14-12" /></svg>
+);
+export const GlyphCV = () => (
+  <svg {...glyph}><path d="M10 60s18-32 50-32 50 32 50 32-18 32-50 32S10 60 10 60z" /><circle cx="60" cy="60" r="16" /><path d="M14 22V12h10M106 22V12H96M14 98v10h10M106 98v10H96" /></svg>
+);
+export const GlyphMLOps = () => (
+  <svg {...glyph}><path d="M36 42a18 18 0 1 0 0 36c14 0 34-36 48-36a18 18 0 1 1 0 36c-14 0-34-36-48-36z" /><path d="M84 32l8 10-12 4" /></svg>
+);
+export const GlyphWeb = () => (
+  <svg {...glyph}><rect x="12" y="20" width="96" height="76" rx="10" /><path d="M12 38h96" /><circle cx="24" cy="29" r="2.5" /><circle cx="33" cy="29" r="2.5" /><path d="M46 60 36 70l10 10M74 60l10 10-10 10M64 56l-8 28" /></svg>
+);
