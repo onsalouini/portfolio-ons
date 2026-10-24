@@ -119,6 +119,7 @@ export const projects = [
     },
     tech: ['Python', 'scikit-learn', 'XGBoost', 'SHAP', 'FastAPI', 'Laravel 12', 'React 19', 'TypeScript', 'MySQL', 'Docker'],
     github: 'https://github.com/onsalouini/nexus-ai',
+    video: 'rdG9o6cFJJs',
   },
   {
     id: 'saferoad-ai',

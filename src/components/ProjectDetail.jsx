@@ -5,6 +5,7 @@ import { projects } from '../data/portfolioData';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { ArrowLeft, GitHub } from './Icons';
+import { Aurora } from './Hero';
 
 export default function ProjectDetail() {
   const { id } = useParams();
@@ -20,7 +21,8 @@ export default function ProjectDetail() {
   return (
     <>
       <Navbar />
-      <main className="detail">
+      <main className={`detail${p ? ` accent-${p.domains[0]}` : ''}`}>
+        <Aurora />
         <div className="wrap">
           <Link className="back" to="/#projects"><ArrowLeft /> {t.detail.back}</Link>
 

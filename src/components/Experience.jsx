@@ -6,16 +6,16 @@ import { experience } from '../data/portfolioData';
 export default function Experience() {
   const { t, tr } = useLang();
   return (
-    <section className="section" id="experience">
+    <section className="section tint-blush" id="experience">
       <div className="wrap">
-        <div className="section-head"><h2>{t.experience.title}</h2></div>
+        <div className="section-head reveal"><h2>{t.experience.title}</h2></div>
         <ol className="timeline">
           {experience.map(job => (
-            <li key={job.company}>
+            <li key={job.company} className="reveal">
               <p className="tl-when"><strong>{tr(job.period)}</strong>{tr(job.place)}</p>
               <div className="tl-body">
                 <h3>{tr(job.role)}</h3>
-                <p className="tl-company">{job.company} — {tr(job.project)}</p>
+                <p className="tl-company grad-text">{job.company} — {tr(job.project)}</p>
                 <ul className="points">
                   {tr(job.points).map(p => <li key={p}>{p}</li>)}
                 </ul>

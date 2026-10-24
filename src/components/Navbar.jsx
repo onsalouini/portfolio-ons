@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 import { personal } from '../data/portfolioData';
@@ -22,6 +22,18 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   const prefix = pathname === '/' ? '' : '/';
+  const bar = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (bar.current) bar.current.style.setProperty('--p', max > 0 ? Math.min(window.scrollY / max, 1) : 0);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+  }, [pathname]);
 
   return (
     <header className="nav">
@@ -64,6 +76,7 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
+      <div className="scroll-progress" ref={bar} aria-hidden="true" />
     </header>
   );
 }

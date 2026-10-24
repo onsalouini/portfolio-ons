@@ -14,9 +14,9 @@ export default function Projects() {
   const shownOthers = filter === 'all' || filter === 'web' ? others : [];
 
   return (
-    <section className="section" id="projects">
+    <section className="section tint-lilac" id="projects">
       <div className="wrap">
-        <div className="section-head">
+        <div className="section-head reveal">
           <h2>{t.projects.title}</h2>
           <p>{t.projects.intro}</p>
         </div>
@@ -40,7 +40,7 @@ export default function Projects() {
         ) : (
           <ul className="model-list">
             {shown.map(p => (
-              <li className="model" key={p.id}>
+              <li className={`model reveal accent-${p.domains[0]}`} key={p.id}>
                 <p className="model-metric">
                   <span className="value">{tr(p.metric.value)}</span>
                   <span className="label">{tr(p.metric.label)}</span>
@@ -69,7 +69,7 @@ export default function Projects() {
             <h3>{t.projects.others}</h3>
             <ul>
               {shownOthers.map(p => (
-                <li key={p.id}>
+                <li key={p.id} className="reveal">
                   {p.description && p.tech.length ? (
                     <Link to={`/projet/${p.id}`}>
                       <strong>{tr(p.title)}</strong>

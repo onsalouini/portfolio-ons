@@ -14,6 +14,8 @@ export const translations = {
       downloadCV: 'Télécharger mon CV',
       contact: 'Me contacter',
       photoAlt: 'Portrait d’Ons Alouini',
+      fc1: 'ROC-AUC · NEXUS AI',
+      fc2: 'accidents analysés · SafeRoad AI',
     },
     experience: { title: 'Expérience', seeProject: 'Voir le projet' },
     projects: {
@@ -77,6 +79,8 @@ export const translations = {
       downloadCV: 'Download my CV',
       contact: 'Contact me',
       photoAlt: 'Portrait of Ons Alouini',
+      fc1: 'ROC-AUC · NEXUS AI',
+      fc2: 'accidents analyzed · SafeRoad AI',
     },
     experience: { title: 'Experience', seeProject: 'See the project' },
     projects: {

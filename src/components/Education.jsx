@@ -5,13 +5,13 @@ import { education, certifications, languages, softSkills } from '../data/portfo
 export default function Education() {
   const { t, tr } = useLang();
   return (
-    <section className="section" id="education">
+    <section className="section tint-lilac" id="education">
       <div className="wrap">
-        <div className="section-head"><h2>{t.education.title}</h2></div>
+        <div className="section-head reveal"><h2>{t.education.title}</h2></div>
         <div className="edu-grid">
           <ul className="edu-list">
             {education.map(e => (
-              <li key={tr(e.degree)}>
+              <li key={tr(e.degree)} className="reveal">
                 <p className="edu-period">{tr(e.period)}</p>
                 <h3>{tr(e.degree)}</h3>
                 <p className="edu-school">{tr(e.school)}, {e.place}</p>
@@ -21,7 +21,7 @@ export default function Education() {
           </ul>
 
           <div>
-            <div className="side">
+            <div className="side reveal">
               <h3>{t.education.certifications}</h3>
               <ul className="cert-list">
                 {certifications.map(c => (
@@ -35,7 +35,7 @@ export default function Education() {
                 ))}
               </ul>
             </div>
-            <div className="side">
+            <div className="side reveal">
               <h3>{t.education.languages}</h3>
               <ul className="lang-list">
                 {languages.map(l => (
@@ -43,7 +43,7 @@ export default function Education() {
                 ))}
               </ul>
             </div>
-            <div className="side">
+            <div className="side reveal">
               <h3>{t.education.softSkills}</h3>
               <ul className="tags">{tr(softSkills).map(s => <li key={s}>{s}</li>)}</ul>
             </div>

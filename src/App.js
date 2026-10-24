@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import useReveal from './useReveal';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,6 +13,7 @@ import ProjectDetail from './components/ProjectDetail';
 
 function Home() {
   const { hash } = useLocation();
+  useReveal();
 
   // Coming back from a project page with /#projects: scroll to that section.
   useEffect(() => {
