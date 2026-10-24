@@ -4,31 +4,31 @@
    Light by default, dark on system preference or via the toggle.
 ================================================================== */
 :root {
-  --bg: #f8f5fa;
+  --bg: #faf6f4;
   --tile: #ffffff;
-  --tile-2: #fdf9fc;
-  --ink: #1d1428;
-  --ink-soft: #685c7a;
-  --line: #ebe2ef;
-  --rose: #d1477f;
-  --rose-deep: #a8325f;
-  --plum: #6e43c4;
-  --blush: #fde6ef;
-  --lilac: #ece5ff;
-  --peach: #ffe7da;
-  --sky: #e2ecff;
-  --mint: #dcf3ec;
-  --grad: linear-gradient(115deg, #e0588f 0%, #b552c0 52%, #6e43c4 100%);
-  --shadow: 0 1px 2px rgba(40, 20, 60, .04), 0 12px 32px -18px rgba(60, 30, 90, .22);
-  --shadow-hover: 0 2px 4px rgba(40, 20, 60, .05), 0 26px 50px -24px rgba(150, 50, 120, .38);
+  --tile-2: #fdf9f8;
+  --ink: #2a1419;
+  --ink-soft: #6e5a5f;
+  --line: #eee2df;
+  --rose: #a3294f;
+  --rose-deep: #7f1d3c;
+  --plum: #a8703f;
+  --blush: #f8e5e8;
+  --lilac: #f5ebe0;
+  --peach: #f8e6dc;
+  --sky: #efe4ea;
+  --mint: #e6efe3;
+  --grad: linear-gradient(115deg, #b23a5e 0%, #c98d5f 100%);
+  --shadow: 0 1px 2px rgba(60, 20, 30, .04), 0 12px 32px -18px rgba(80, 30, 40, .22);
+  --shadow-hover: 0 2px 4px rgba(60, 20, 30, .05), 0 26px 50px -24px rgba(163, 41, 79, .32);
   --on-grad: #ffffff;
-  --focus: #6e43c4;
+  --focus: #a3294f;
 
-  --a-ml: #6e43c4;   --a-ml-bg: #ece5ff;
-  --a-nlp: #d1477f;  --a-nlp-bg: #fde6ef;
-  --a-cv: #3f6fdc;   --a-cv-bg: #e2ecff;
-  --a-mlops: #1f9278; --a-mlops-bg: #dcf3ec;
-  --a-web: #d9683b;  --a-web-bg: #ffe7da;
+  --a-ml: #a8703f;   --a-ml-bg: #f5ebe0;
+  --a-nlp: #a3294f;  --a-nlp-bg: #f8e5e8;
+  --a-cv: #7a4a5c;   --a-cv-bg: #efe4ea;
+  --a-mlops: #5e7a5a; --a-mlops-bg: #e6efe3;
+  --a-web: #b8613a;  --a-web-bg: #f8e6dc;
 
   --display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
   --body: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
@@ -42,28 +42,28 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #100b16; --tile: #1a1322; --tile-2: #1e1627; --ink: #f6eff9; --ink-soft: #b4a7c5; --line: #2d2239;
-    --rose: #f27fb1; --rose-deep: #ffa3c9; --plum: #b49cff;
-    --blush: #3a1c2f; --lilac: #2a2148; --peach: #3a2420; --sky: #1e2a48; --mint: #15332c;
-    --grad: linear-gradient(115deg, #f585b6 0%, #c98af0 52%, #9e86ff 100%);
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 16px 40px -22px rgba(0,0,0,.7);
-    --shadow-hover: 0 2px 4px rgba(0,0,0,.3), 0 30px 60px -26px rgba(242,127,177,.35);
-    --on-grad: #190f20; --focus: #f27fb1;
-    --a-ml: #b49cff; --a-ml-bg: #2a2148; --a-nlp: #f27fb1; --a-nlp-bg: #3a1c2f; --a-cv: #8fb0ff; --a-cv-bg: #1e2a48;
-    --a-mlops: #6fd6bb; --a-mlops-bg: #15332c; --a-web: #ffa985; --a-web-bg: #3a2420;
+    --bg: #140b0e; --tile: #1e1216; --tile-2: #23161a; --ink: #f7eeee; --ink-soft: #bfa9ad; --line: #3a262c;
+    --rose: #e88aa6; --rose-deep: #f3aac0; --plum: #e0b07f;
+    --blush: #3d1a25; --lilac: #33261c; --peach: #3a2219; --sky: #2e2029; --mint: #1f2d1f;
+    --grad: linear-gradient(115deg, #e8789c 0%, #e0b07f 100%);
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 16px 40px -22px rgba(0,0,0,.75);
+    --shadow-hover: 0 2px 4px rgba(0,0,0,.35), 0 30px 60px -26px rgba(232,138,166,.3);
+    --on-grad: #1a0d11; --focus: #e88aa6;
+    --a-ml: #e0b07f; --a-ml-bg: #33261c; --a-nlp: #e88aa6; --a-nlp-bg: #3d1a25; --a-cv: #d4a6bb; --a-cv-bg: #2e2029;
+    --a-mlops: #a3c99d; --a-mlops-bg: #1f2d1f; --a-web: #f0a07a; --a-web-bg: #3a2219;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #100b16; --tile: #1a1322; --tile-2: #1e1627; --ink: #f6eff9; --ink-soft: #b4a7c5; --line: #2d2239;
-  --rose: #f27fb1; --rose-deep: #ffa3c9; --plum: #b49cff;
-  --blush: #3a1c2f; --lilac: #2a2148; --peach: #3a2420; --sky: #1e2a48; --mint: #15332c;
-  --grad: linear-gradient(115deg, #f585b6 0%, #c98af0 52%, #9e86ff 100%);
-  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 16px 40px -22px rgba(0,0,0,.7);
-  --shadow-hover: 0 2px 4px rgba(0,0,0,.3), 0 30px 60px -26px rgba(242,127,177,.35);
-  --on-grad: #190f20; --focus: #f27fb1;
-  --a-ml: #b49cff; --a-ml-bg: #2a2148; --a-nlp: #f27fb1; --a-nlp-bg: #3a1c2f; --a-cv: #8fb0ff; --a-cv-bg: #1e2a48;
-  --a-mlops: #6fd6bb; --a-mlops-bg: #15332c; --a-web: #ffa985; --a-web-bg: #3a2420;
+  --bg: #140b0e; --tile: #1e1216; --tile-2: #23161a; --ink: #f7eeee; --ink-soft: #bfa9ad; --line: #3a262c;
+  --rose: #e88aa6; --rose-deep: #f3aac0; --plum: #e0b07f;
+  --blush: #3d1a25; --lilac: #33261c; --peach: #3a2219; --sky: #2e2029; --mint: #1f2d1f;
+  --grad: linear-gradient(115deg, #e8789c 0%, #e0b07f 100%);
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 16px 40px -22px rgba(0,0,0,.75);
+  --shadow-hover: 0 2px 4px rgba(0,0,0,.35), 0 30px 60px -26px rgba(232,138,166,.3);
+  --on-grad: #1a0d11; --focus: #e88aa6;
+  --a-ml: #e0b07f; --a-ml-bg: #33261c; --a-nlp: #e88aa6; --a-nlp-bg: #3d1a25; --a-cv: #d4a6bb; --a-cv-bg: #2e2029;
+  --a-mlops: #a3c99d; --a-mlops-bg: #1f2d1f; --a-web: #f0a07a; --a-web-bg: #3a2219;
   color-scheme: dark;
 }
 
@@ -97,8 +97,8 @@ button { font: inherit; color: inherit; }
 /* page glow */
 .page-glow { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
 .page-glow span { position: absolute; border-radius: 50%; filter: blur(120px); opacity: .35; }
-.page-glow .g1 { width: 560px; height: 560px; background: #ffc6de; top: -180px; left: -140px; }
-.page-glow .g2 { width: 520px; height: 520px; background: #ddd0ff; top: 10%; right: -200px; }
+.page-glow .g1 { width: 560px; height: 560px; background: #f6d3dc; top: -180px; left: -140px; }
+.page-glow .g2 { width: 520px; height: 520px; background: #f3e1cc; top: 10%; right: -200px; }
 :root[data-theme="dark"] .page-glow span { opacity: .22; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .page-glow span { opacity: .22; } }
 
@@ -227,7 +227,7 @@ a.tile:hover, .tile.lift:hover { transform: translateY(-4px); box-shadow: var(--
 .portrait-arch {
   position: relative; z-index: 1; aspect-ratio: 4 / 5; overflow: hidden;
   border-radius: 999px 999px 24px 24px; background: var(--tile);
-  box-shadow: 0 40px 80px -40px rgba(60, 30, 90, .45);
+  box-shadow: 0 40px 80px -40px rgba(80, 25, 40, .45);
   animation: archReveal 1.4s cubic-bezier(.65,0,.35,1) both; animation-delay: .2s;
 }
 .portrait-arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; animation: settle 1.8s cubic-bezier(.2,.7,.2,1) both; animation-delay: .2s; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
