@@ -21,7 +21,7 @@ export default function Certifications() {
 
         <div className="cert-grid">
           {featured.map(c => (
-            <a key={c.title} className="tile cert-card reveal" href={c.pdf} target="_blank" rel="noreferrer">
+            <a key={c.title} className="tile cert-card tilt reveal" href={c.pdf} target="_blank" rel="noreferrer">
               <div className="cert-thumb">
                 <img src={c.thumb} alt="" loading="lazy" width="640" height="455" />
               </div>

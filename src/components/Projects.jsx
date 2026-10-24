@@ -36,7 +36,7 @@ export default function Projects() {
         ) : (
           <ul className="proj-grid">
             {shown.map((p, i) => (
-              <li key={p.id} className={`tile lift proj reveal acc-${p.domains[0]}${i === 0 && filter === 'all' ? ' wide' : ''}`}>
+              <li key={p.id} className={`tile lift proj tilt reveal acc-${p.domains[0]}${i === 0 && filter === 'all' ? ' wide' : ''}`}>
                 <ProjectCover domain={p.domains[0]} title={tr(p.title)} context={tr(p.context)} />
                 <div className="proj-body">
                   <p className="result"><b>{tr(p.metric.value)}</b>{tr(p.metric.label)}</p>
