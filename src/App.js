@@ -1,41 +1,49 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
-import About from './components/About';
-import Skills from './components/Skills';
+import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Skills from './components/Skills';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
-import Certifications from './components/Certifications';
 
 function Home() {
+  const { hash } = useLocation();
+
+  // Coming back from a project page with /#projects: scroll to that section.
+  useEffect(() => {
+    if (!hash) return;
+    const el = document.getElementById(hash.slice(1));
+    if (el) requestAnimationFrame(() => el.scrollIntoView());
+  }, [hash]);
+
   return (
-    <div>
+    <>
       <Navbar />
-      <Hero />
-      <Stats />
-      <About />
-      <Skills />
-      <Projects />
-      <Certifications />
-      <Education />
-      <Contact />
-    </div>
+      <main>
+        <Hero />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projet/:id" element={<ProjectDetail />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;
