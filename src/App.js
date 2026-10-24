@@ -12,6 +12,8 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
+import ToTop from './components/ToTop';
+import { useLang } from './context/LanguageContext';
 
 function Home() {
   const { hash } = useLocation();
@@ -25,11 +27,14 @@ function Home() {
     if (el) requestAnimationFrame(() => el.scrollIntoView());
   }, [hash]);
 
+  const { lang } = useLang();
   return (
     <>
+      <a className="skip-link" href="#main">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
       <div className="page-glow" aria-hidden="true"><span className="g1" /><span className="g2" /><span className="g3" /></div>
       <Navbar />
-      <main>
+      <ToTop />
+      <main id="main">
         <Hero />
         <Experience />
         <Projects />

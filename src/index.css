@@ -69,7 +69,7 @@
 
 /* ------------------------------------------------------------------ base */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
@@ -87,7 +87,10 @@ button { font: inherit; color: inherit; }
 ::selection { background: color-mix(in srgb, var(--rose) 28%, transparent); }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); position: relative; }
-.section { padding: clamp(64px, 9vw, 112px) 0 0; }
+.section { --pad: clamp(64px, 9vw, 112px); padding: var(--pad) 0 0; }
+/* when a menu link is used, every section title lands at the same spot just under the menu */
+.section { scroll-margin-top: calc(108px - var(--pad)); }
+#top { scroll-margin-top: 0; }
 .section:last-of-type { padding-bottom: clamp(64px, 9vw, 112px); }
 .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; margin-bottom: 28px; }
 .section-head h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.6rem); letter-spacing: -0.01em; line-height: 1; }
@@ -500,3 +503,17 @@ a.tile:hover, .tile.lift:hover { transform: translateY(-4px); box-shadow: var(--
   .name-shine, .spark, .nav-pill::before, .page-glow span { animation: none !important; }
   .name-shine, .spark { display: none; }
 }
+
+/* ------------------------------------------------------------------ helpers */
+.skip-link { position: fixed; left: 16px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 12px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; transition: top .2s; }
+.skip-link:focus { top: 16px; }
+.to-top {
+  position: fixed; right: 22px; bottom: 22px; z-index: 30; width: 48px; height: 48px; border-radius: 50%;
+  display: grid; place-items: center; border: 1px solid var(--line); background: color-mix(in srgb, var(--tile) 85%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--ink); cursor: pointer; box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none; transition: opacity .3s, transform .3s, color .2s, border-color .2s;
+}
+.to-top[data-show="true"] { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { color: var(--rose); border-color: var(--rose); }
+.to-top svg.ring { position: absolute; inset: -1px; width: calc(100% + 2px); height: calc(100% + 2px); transform: rotate(-90deg); }
+.to-top svg.ring circle { fill: none; stroke: url(#ringGrad); stroke-width: 2; stroke-dasharray: 145; stroke-dashoffset: calc(145 - 145 * var(--p, 0)); stroke-linecap: round; }
