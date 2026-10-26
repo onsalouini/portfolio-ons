@@ -155,6 +155,7 @@ export const projects = [
     },
     tech: ['Python', 'LightGBM', 'SHAP', 'pandas', 'FastAPI', 'MongoDB', 'React', 'Leaflet', 'OpenStreetMap'],
     github: 'https://github.com/onsalouini/saferoad-ai',
+    video: 'Lxh-PL0BlS8',
   },
   {
     id: 'medvision-ai',
@@ -255,6 +256,7 @@ export const projects = [
     },
     tech: ['Python', 'RoBERTa', 'NLP', 'FastAPI', 'React'],
     github: 'https://github.com/BoutheinaRj/forsatech',
+    video: 'FDS1YpegrzE',
   },
   {
     id: 'mlops-heartai',
@@ -318,6 +320,7 @@ export const projects = [
     },
     tech: ['YOLOv8', 'OpenCV', 'PyTorch', 'Python'],
     github: 'https://github.com/onsalouini/Diagnostic_Dentaire',
+    video: 'XqJ1CWEX7u0',
   },
   {
     id: 'rh-platform',
