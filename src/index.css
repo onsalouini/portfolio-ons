@@ -298,11 +298,42 @@ a.tile:hover, .tile.lift:hover { transform: translateY(-4px); box-shadow: var(--
 .cover .ctx { position: absolute; left: 20px; top: 18px; padding: 5px 12px; border-radius: 999px; background: color-mix(in srgb, var(--tile) 85%, transparent); backdrop-filter: blur(6px); font-size: .82rem; font-weight: 700; color: var(--ink); }
 .cover .cover-title { position: absolute; left: 20px; bottom: 18px; font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2.2rem); letter-spacing: -0.03em; color: var(--ink); max-width: calc(100% - 40px); line-height: 1.05; }
 .proj.wide .cover .cover-title { max-width: 60%; }
-.cover-logo { position: absolute; right: 18px; top: 18px; width: 92px; height: 92px; padding: 8px; border-radius: 24px; background: #fff; box-shadow: 0 10px 28px -10px rgba(42, 20, 25, .35); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-.cover-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 16px; }
-.proj.wide .cover-logo { width: 140px; height: 140px; top: 50%; right: 32px; margin-top: -70px; }
-.proj:hover .cover-logo { transform: translateY(-6px) rotate(-3deg); }
-.detail-hero .cover-logo { width: clamp(100px, 16vw, 168px); height: clamp(100px, 16vw, 168px); top: 50%; right: 40px; transform: translateY(-50%); }
+/* Project banner: the app's colors, its logo set in, title and tagline */
+.cover.banner {
+  height: auto; min-height: 200px; display: flex; align-items: center; padding: 50px 24px 22px; color: #fff;
+  background:
+    radial-gradient(70% 120% at 0% 100%, color-mix(in srgb, var(--ba) 16%, transparent) 0%, transparent 60%),
+    linear-gradient(125deg, var(--b1) 0%, var(--b2) 100%);
+}
+.cover.banner::before { display: none; }
+.banner .orb { position: absolute; border-radius: 50%; pointer-events: none; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.banner .o1 { width: 220px; height: 220px; right: -70px; top: -90px; background: color-mix(in srgb, var(--ba) 20%, transparent); }
+.banner .o2 { width: 150px; height: 150px; right: 30px; bottom: -95px; background: rgba(255, 255, 255, .06); }
+.proj:hover .banner .o1 { transform: translate(-12px, 10px); }
+.proj:hover .banner .o2 { transform: translate(8px, -8px); }
+.cover.banner .ctx { top: 16px; left: 24px; max-width: calc(100% - 48px); background: rgba(255, 255, 255, .12); color: #fff; border: 1px solid rgba(255, 255, 255, .14); }
+.banner-row { position: relative; display: flex; align-items: center; gap: 16px; min-width: 0; }
+.cover-logo { flex: none; width: 64px; aspect-ratio: 1; border-radius: 23%; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(255, 255, 255, .18), 0 12px 28px -10px color-mix(in srgb, var(--ba) 70%, #000); transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.cover-logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.proj:hover .cover-logo { transform: translateY(-3px) scale(1.04); }
+.banner-text { min-width: 0; }
+.cover.banner .cover-title { position: static; display: block; max-width: none; color: #fff; font-size: clamp(1.3rem, 1.8vw, 1.6rem); line-height: 1.1; }
+.banner-tag { display: block; margin-top: 6px; font-size: .82rem; line-height: 1.35; font-weight: 600; color: color-mix(in srgb, var(--ba) 30%, #fff); }
+.banner-bar { display: block; width: 44px; height: 3px; margin-top: 10px; border-radius: 3px; background: var(--ba); transition: width .6s cubic-bezier(.2,.7,.2,1); }
+.proj:hover .banner-bar { width: 72px; }
+.proj.wide .cover.banner { padding-left: 36px; }
+.proj.wide .cover.banner .ctx { left: 36px; }
+.proj.wide .banner-row { gap: 24px; }
+.proj.wide .cover-logo { width: 104px; }
+.proj.wide .cover.banner .cover-title { max-width: none; font-size: clamp(1.8rem, 3vw, 2.5rem); }
+.proj.wide .banner-tag { font-size: .95rem; }
+.detail-hero .cover.banner { min-height: clamp(220px, 30vw, 300px); padding: 64px clamp(24px, 4vw, 48px) 32px; }
+.detail-hero .cover.banner .ctx { left: clamp(24px, 4vw, 48px); top: 22px; }
+.detail-hero .banner-row { gap: clamp(18px, 3vw, 32px); }
+.detail-hero .cover-logo { width: clamp(76px, 11vw, 128px); }
+.detail-hero .cover.banner .cover-title { font-size: clamp(2rem, 5vw, 3.6rem); max-width: none; }
+.detail-hero .banner-tag { font-size: clamp(.9rem, 1.4vw, 1.1rem); margin-top: 10px; }
+.detail-hero .banner-bar { width: 64px; height: 4px; margin-top: 16px; }
 .proj:not(.wide) .cover .ctx { max-width: calc(100% - 140px); line-height: 1.35; }
 .proj-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .result { align-self: flex-start; display: inline-flex; align-items: baseline; gap: 8px; padding: 5px 12px; border-radius: 12px; background: var(--acc-bg); color: var(--acc); font-weight: 700; font-size: .9rem; }

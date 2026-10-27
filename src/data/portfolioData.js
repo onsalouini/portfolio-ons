@@ -87,6 +87,8 @@ export const domains = {
 export const projects = [
   {
     id: 'nexus-ai',
+    brand: ['#0b1446', '#2b1a6e', '#38bdf8'],
+    tagline: { fr: 'Projets · Support · Finances · IA', en: 'Projects · Support · Finance · AI' },
     logo: '/projects/nexus-ai-logo.jpg',
     title: 'NEXUS AI',
     domains: ['ml', 'nlp', 'web'],
@@ -124,6 +126,8 @@ export const projects = [
   },
   {
     id: 'saferoad-ai',
+    brand: ['#0b1a33', '#1d4ea3', '#fbbf24'],
+    tagline: { fr: 'Risque routier · Itinéraires · Météo', en: 'Road risk · Routes · Weather' },
     logo: '/projects/saferoad-ai-logo.png',
     title: 'SafeRoad AI',
     domains: ['ml', 'web'],
@@ -161,6 +165,8 @@ export const projects = [
   },
   {
     id: 'medvision-ai',
+    brand: ['#0a1f3f', '#1b4b8f', '#4fc3f7'],
+    tagline: { fr: 'IRM · Histopathologie · Grad-CAM', en: 'MRI · Histopathology · Grad-CAM' },
     logo: '/projects/medvision-ai-logo.jpg',
     title: 'MedVision AI',
     domains: ['cv'],
@@ -196,6 +202,9 @@ export const projects = [
   },
   {
     id: 'fardi-caseforge',
+    logo: '/projects/fardi-caseforge-logo.svg',
+    brand: ['#22094f', '#4c1d95', '#fbbf24'],
+    tagline: { fr: 'NER · Anonymisation · FR / AR / EN', en: 'NER · Anonymization · FR / AR / EN' },
     title: 'FARDI CaseForge',
     domains: ['nlp'],
     context: { fr: 'Projet d’équipe NLP · en cours', en: 'Team NLP project · ongoing' },
@@ -231,6 +240,8 @@ export const projects = [
   },
   {
     id: 'forsatech',
+    brand: ['#04202e', '#0b5470', '#2dd4bf'],
+    tagline: { fr: 'Analyse de CV · Matching · Recrutement', en: 'CV parsing · Matching · Hiring' },
     logo: '/projects/forsatech-logo.png',
     title: 'ForsaTech',
     domains: ['nlp', 'web'],
@@ -264,6 +275,8 @@ export const projects = [
   },
   {
     id: 'mlops-heartai',
+    brand: ['#2a0712', '#7a1730', '#ff6b84'],
+    tagline: { fr: 'MLflow · Docker · CI/CD · Monitoring', en: 'MLflow · Docker · CI/CD · Monitoring' },
     logo: '/projects/mlops-heartai-logo.svg',
     title: 'MLOps HeartAI',
     domains: ['mlops'],
@@ -299,6 +312,9 @@ export const projects = [
   },
   {
     id: 'dental-vision',
+    brand: ['#05263a', '#1d3f8f', '#ffb02e'],
+    tagline: { fr: 'Radiographies · YOLOv8 · Détection', en: 'X-rays · YOLOv8 · Detection' },
+    logo: '/projects/dental-vision-logo.svg',
     title: { fr: 'Détection d’anomalies dentaires', en: 'Dental anomaly detection' },
     domains: ['cv'],
     context: { fr: 'Projet académique', en: 'Academic project' },
@@ -329,6 +345,9 @@ export const projects = [
   },
   {
     id: 'rh-platform',
+    brand: ['#0f1535', '#25205a', '#22c55e'],
+    tagline: { fr: 'Employés · Présences · Projets · Départements', en: 'Employees · Attendance · Projects · Departments' },
+    logo: '/projects/rh-platform-logo.png',
     title: { fr: 'Plateforme RH', en: 'HR platform' },
     domains: ['web'],
     context: { fr: 'Stage chez ForeverMo Group · 2025', en: 'Internship at ForeverMo Group · 2025' },

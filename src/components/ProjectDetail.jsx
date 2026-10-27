@@ -31,7 +31,7 @@ export default function ProjectDetail() {
           ) : (
             <div className={`acc-${p.domains[0]}`}>
               <div className="tile detail-hero">
-                <ProjectCover domain={p.domains[0]} title={tr(p.title)} context={tr(p.context)} logo={p.logo} />
+                <ProjectCover domain={p.domains[0]} title={tr(p.title)} context={tr(p.context)} logo={p.logo} brand={p.brand} tagline={p.tagline && tr(p.tagline)} />
               </div>
 
               <div className="detail-grid">
