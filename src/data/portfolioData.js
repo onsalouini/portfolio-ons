@@ -87,6 +87,14 @@ export const domains = {
 export const projects = [
   {
     id: 'nexus-ai',
+    gallery: [
+      { src: 'nexus-dashboard', caption: { fr: 'Tableau de bord Direction et alertes de risque', en: 'Leadership dashboard with risk alerts' } },
+      { src: 'nexus-triage', caption: { fr: 'Ticket trié automatiquement : catégorie, urgence, sentiment', en: 'Ticket triaged automatically: category, urgency, sentiment' } },
+      { src: 'nexus-model', caption: { fr: 'Modèle de tri des tickets et réentraînement', en: 'Ticket-triage model and retraining' } },
+      { src: 'nexus-kanban', caption: { fr: 'Kanban avec génération et répartition des tâches par IA', en: 'Kanban with AI task generation and assignment' } },
+      { src: 'nexus-client', caption: { fr: 'Suivi de projet côté client', en: 'Client-side project tracking' } },
+      { src: 'nexus-messaging', caption: { fr: 'Messagerie entre l’équipe et le client', en: 'Team–client messaging' } },
+    ],
     brand: ['#0b1446', '#2b1a6e', '#38bdf8'],
     tagline: { fr: 'Projets · Support · Finances · IA', en: 'Projects · Support · Finance · AI' },
     logo: '/projects/nexus-ai-logo.jpg',
@@ -126,6 +134,9 @@ export const projects = [
   },
   {
     id: 'saferoad-ai',
+    gallery: [
+      { src: 'saferoad-drive', caption: { fr: 'Mode conduite : indice de risque et meilleur départ', en: 'Drive mode: risk score and best departure time' } },
+    ],
     brand: ['#0b1a33', '#1d4ea3', '#fbbf24'],
     tagline: { fr: 'Risque routier · Itinéraires · Météo', en: 'Road risk · Routes · Weather' },
     logo: '/projects/saferoad-ai-logo.png',
@@ -165,6 +176,9 @@ export const projects = [
   },
   {
     id: 'medvision-ai',
+    gallery: [
+      { src: 'medvision-gradcam', caption: { fr: 'Diagnostic IRM avec carte Grad-CAM et probabilités par classe', en: 'MRI diagnosis with Grad-CAM map and class probabilities' } },
+    ],
     brand: ['#0a1f3f', '#1b4b8f', '#4fc3f7'],
     tagline: { fr: 'IRM · Histopathologie · Grad-CAM', en: 'MRI · Histopathology · Grad-CAM' },
     logo: '/projects/medvision-ai-logo.jpg',
@@ -240,6 +254,9 @@ export const projects = [
   },
   {
     id: 'forsatech',
+    gallery: [
+      { src: 'forsatech-recruiter', caption: { fr: 'Espace recruteur', en: 'Recruiter workspace' } },
+    ],
     brand: ['#04202e', '#0b5470', '#2dd4bf'],
     tagline: { fr: 'Analyse de CV · Matching · Recrutement', en: 'CV parsing · Matching · Hiring' },
     logo: '/projects/forsatech-logo.png',
@@ -275,6 +292,10 @@ export const projects = [
   },
   {
     id: 'mlops-heartai',
+    gallery: [
+      { src: 'heartai-app', caption: { fr: 'Interface de diagnostic patient', en: 'Patient diagnosis interface' } },
+      { src: 'heartai-nn', caption: { fr: 'Comparaison de 5 réseaux : métriques, courbes ROC, matrices de confusion', en: 'Five networks compared: metrics, ROC curves, confusion matrices' } },
+    ],
     brand: ['#2a0712', '#7a1730', '#ff6b84'],
     tagline: { fr: 'MLflow · Docker · CI/CD · Monitoring', en: 'MLflow · Docker · CI/CD · Monitoring' },
     logo: '/projects/mlops-heartai-logo.svg',
@@ -434,6 +455,14 @@ export const projects = [
     },
     tech: ['Symfony', 'MySQL', 'JavaScript'],
   },
+];
+
+// Key figures shown under the hero; numbers count up when they scroll into view
+export const highlights = [
+  { value: 3, label: { fr: 'modèles de ML en production', en: 'ML models in production' } },
+  { value: 7.7, decimals: 1, suffix: ' M', label: { fr: 'accidents analysés pour SafeRoad AI', en: 'accidents analyzed for SafeRoad AI' } },
+  { value: 0.932, decimals: 3, label: { fr: 'meilleur ROC-AUC, NEXUS AI', en: 'best ROC-AUC, NEXUS AI' } },
+  { value: projects.filter(p => p.metric).length, label: { fr: 'projets phares, du modèle à l’application', en: 'featured projects, from model to app' } },
 ];
 
 export const skills = [

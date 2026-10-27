@@ -52,6 +52,19 @@ export const Award = () => (
   <svg {...base}><circle cx="12" cy="9" r="5.5" /><path d="m8.5 13.5-1.5 7 5-2.5 5 2.5-1.5-7" /></svg>
 );
 
+export const Play = () => (
+  <svg className="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" /></svg>
+);
+export const ChevronLeft = () => (
+  <svg {...base}><path d="m15 5-7 7 7 7" /></svg>
+);
+export const ChevronRight = () => (
+  <svg {...base}><path d="m9 5 7 7-7 7" /></svg>
+);
+export const Expand = () => (
+  <svg {...base}><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>
+);
+
 // Large decorative glyphs for project covers, one per domain
 const glyph = { viewBox: '0 0 120 120', fill: 'none', stroke: 'currentColor', strokeWidth: 3, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': true, className: 'glyph' };
 export const GlyphML = () => (
