@@ -31,7 +31,7 @@ export default function ProjectDetail() {
           ) : (
             <div className={`acc-${p.domains[0]}`}>
               <div className="tile detail-hero">
-                <ProjectCover domain={p.domains[0]} title={tr(p.title)} context={tr(p.context)} />
+                <ProjectCover domain={p.domains[0]} title={tr(p.title)} context={tr(p.context)} image={p.image} />
               </div>
 
               <div className="detail-grid">
@@ -45,7 +45,7 @@ export default function ProjectDetail() {
                       <h2>{t.detail.demo}</h2>
                       <div className="video">
                         <iframe
-                          src={`https://www.youtube-nocookie.com/embed/${p.video}?rel=0`}
+                          src={`https://www.youtube.com/embed/${p.video}?rel=0`}
                           title={`${t.detail.demo} — ${tr(p.title)}`}
                           loading="lazy"
                           allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"

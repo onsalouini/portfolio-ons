@@ -298,6 +298,13 @@ a.tile:hover, .tile.lift:hover { transform: translateY(-4px); box-shadow: var(--
 .cover .ctx { position: absolute; left: 20px; top: 18px; padding: 5px 12px; border-radius: 999px; background: color-mix(in srgb, var(--tile) 85%, transparent); backdrop-filter: blur(6px); font-size: .82rem; font-weight: 700; color: var(--ink); }
 .cover .cover-title { position: absolute; left: 20px; bottom: 18px; font-family: var(--display); font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2.2rem); letter-spacing: -0.03em; color: var(--ink); max-width: calc(100% - 40px); line-height: 1.05; }
 .proj.wide .cover .cover-title { max-width: 60%; }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.proj:hover .cover-img { transform: scale(1.04); }
+.cover.has-img::before { display: none; }
+.cover.has-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(20, 8, 12, .82) 100%); }
+.cover.has-img .ctx, .cover.has-img .cover-title { z-index: 1; }
+.cover.has-img .cover-title { color: #fff; text-shadow: 0 2px 12px rgba(0, 0, 0, .35); }
+.proj:not(.wide) .cover.has-img .ctx { max-width: calc(100% - 40px); }
 .proj:not(.wide) .cover .ctx { max-width: calc(100% - 140px); line-height: 1.35; }
 .proj-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .result { align-self: flex-start; display: inline-flex; align-items: baseline; gap: 8px; padding: 5px 12px; border-radius: 12px; background: var(--acc-bg); color: var(--acc); font-weight: 700; font-size: .9rem; }

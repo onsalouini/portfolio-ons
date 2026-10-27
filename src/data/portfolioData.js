@@ -87,6 +87,7 @@ export const domains = {
 export const projects = [
   {
     id: 'nexus-ai',
+    image: '/projects/nexus-ai.jpg',
     title: 'NEXUS AI',
     domains: ['ml', 'nlp', 'web'],
     context: { fr: 'Stage chez Anypli · 2026', en: 'Internship at Anypli · 2026' },
@@ -123,6 +124,7 @@ export const projects = [
   },
   {
     id: 'saferoad-ai',
+    image: '/projects/saferoad-ai.jpg',
     title: 'SafeRoad AI',
     domains: ['ml', 'web'],
     context: { fr: 'Projet personnel · 2026', en: 'Personal project · 2026' },
@@ -159,6 +161,7 @@ export const projects = [
   },
   {
     id: 'medvision-ai',
+    image: '/projects/medvision-ai.jpg',
     title: 'MedVision AI',
     domains: ['cv'],
     context: { fr: 'Projet académique', en: 'Academic project' },
@@ -228,6 +231,7 @@ export const projects = [
   },
   {
     id: 'forsatech',
+    image: '/projects/forsatech.jpg',
     title: 'ForsaTech',
     domains: ['nlp', 'web'],
     context: { fr: "Projet d'équipe · Bal des Projets ESPRIM 2026", en: "Team project · ESPRIM's Bal des Projets 2026" },
@@ -260,6 +264,7 @@ export const projects = [
   },
   {
     id: 'mlops-heartai',
+    image: '/projects/mlops-heartai.jpg',
     title: 'MLOps HeartAI',
     domains: ['mlops'],
     context: { fr: 'Projet académique', en: 'Academic project' },
