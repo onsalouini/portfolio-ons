@@ -87,7 +87,7 @@ export const domains = {
 export const projects = [
   {
     id: 'nexus-ai',
-    image: '/projects/nexus-ai.jpg',
+    logo: '/projects/nexus-ai-logo.jpg',
     title: 'NEXUS AI',
     domains: ['ml', 'nlp', 'web'],
     context: { fr: 'Stage chez Anypli · 2026', en: 'Internship at Anypli · 2026' },
@@ -124,7 +124,7 @@ export const projects = [
   },
   {
     id: 'saferoad-ai',
-    image: '/projects/saferoad-ai.jpg',
+    logo: '/projects/saferoad-ai-logo.png',
     title: 'SafeRoad AI',
     domains: ['ml', 'web'],
     context: { fr: 'Projet personnel · 2026', en: 'Personal project · 2026' },
@@ -161,7 +161,7 @@ export const projects = [
   },
   {
     id: 'medvision-ai',
-    image: '/projects/medvision-ai.jpg',
+    logo: '/projects/medvision-ai-logo.jpg',
     title: 'MedVision AI',
     domains: ['cv'],
     context: { fr: 'Projet académique', en: 'Academic project' },
@@ -231,7 +231,7 @@ export const projects = [
   },
   {
     id: 'forsatech',
-    image: '/projects/forsatech.jpg',
+    logo: '/projects/forsatech-logo.png',
     title: 'ForsaTech',
     domains: ['nlp', 'web'],
     context: { fr: "Projet d'équipe · Bal des Projets ESPRIM 2026", en: "Team project · ESPRIM's Bal des Projets 2026" },
@@ -264,7 +264,7 @@ export const projects = [
   },
   {
     id: 'mlops-heartai',
-    image: '/projects/mlops-heartai.jpg',
+    logo: '/projects/mlops-heartai-logo.svg',
     title: 'MLOps HeartAI',
     domains: ['mlops'],
     context: { fr: 'Projet académique', en: 'Academic project' },
