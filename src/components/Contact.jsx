@@ -78,7 +78,7 @@ export default function Contact() {
               </p>
             )}
             <div>
-              <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
+              <button type="submit" className="btn btn-primary magnetic" disabled={status === 'sending'}>
                 {status === 'sending' ? t.contact.sending : t.contact.send}
               </button>
             </div>

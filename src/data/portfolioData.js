@@ -27,6 +27,15 @@ export const personal = {
   },
 };
 
+// Small floating cards around the hero portrait (key facts, kept short)
+export const heroBadges = [
+  { value: { fr: 'ROC-AUC 0,932', en: 'ROC-AUC 0.932' }, label: { fr: 'Santé financière · XGBoost', en: 'Financial health · XGBoost' } },
+  { value: { fr: 'FR · EN · AR', en: 'FR · EN · AR' }, label: { fr: 'Tri de tickets multilingue', en: 'Multilingual ticket triage' } },
+];
+
+// Text that turns around the portrait
+export const orbitText = { fr: 'Data Science · IA · NLP · MLOps · ', en: 'Data Science · AI · NLP · MLOps · ' };
+
 export const experience = [
   {
     company: 'Anypli',

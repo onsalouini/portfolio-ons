@@ -32,7 +32,7 @@ export default function ToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
       <svg className="ring" viewBox="0 0 50 50" aria-hidden="true">
-        <defs><linearGradient id="ringGrad" x1="0" x2="1"><stop offset="0" stopColor="#b23a5e" /><stop offset="1" stopColor="#c98d5f" /></linearGradient></defs>
+        <defs><linearGradient id="ringGrad" x1="0" x2="1"><stop offset="0" stopColor="#b0376f" /><stop offset=".55" stopColor="#8a4fa8" /><stop offset="1" stopColor="#a85a44" /></linearGradient></defs>
         <circle cx="25" cy="25" r="23" />
       </svg>
       <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import useReveal from './useReveal';
 import useTilt from './useTilt';
+import useMagnetic from './useMagnetic';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -14,12 +15,15 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProjectDetail from './components/ProjectDetail';
 import ToTop from './components/ToTop';
+import CursorGlow from './components/CursorGlow';
+import Marquee from './components/Marquee';
 import { useLang } from './context/LanguageContext';
 
 function Home() {
   const { hash } = useLocation();
   useReveal();
   useTilt();
+  useMagnetic();
 
   // Coming back from a project page with /#projects: scroll to that section.
   useEffect(() => {
@@ -33,11 +37,13 @@ function Home() {
     <>
       <a className="skip-link" href="#main">{lang === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
       <div className="page-glow" aria-hidden="true"><span className="g1" /><span className="g2" /><span className="g3" /></div>
+      <CursorGlow />
       <Navbar />
       <ToTop />
       <main id="main">
         <Hero />
         <Highlights />
+        <Marquee />
         <Experience />
         <Projects />
         <Skills />
