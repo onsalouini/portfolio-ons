@@ -27,18 +27,10 @@ export const personal = {
   },
 };
 
-// Small floating cards around the hero portrait (key facts, kept short)
-export const heroBadges = [
-  { value: { fr: 'ROC-AUC 0,932', en: 'ROC-AUC 0.932' }, label: { fr: 'Santé financière · XGBoost', en: 'Financial health · XGBoost' } },
-  { value: { fr: 'FR · EN · AR', en: 'FR · EN · AR' }, label: { fr: 'Tri de tickets multilingue', en: 'Multilingual ticket triage' } },
-];
-
-// Text that turns around the portrait
-export const orbitText = { fr: 'Data Science · IA · NLP · MLOps · ', en: 'Data Science · AI · NLP · MLOps · ' };
-
 export const experience = [
   {
     company: 'Anypli',
+    logo: '/companies/anypli.png',
     place: { fr: 'Monastir, Tunisie', en: 'Monastir, Tunisia' },
     period: { fr: 'Août 2026 · 1 mois', en: 'Aug 2026 · 1 month' },
     role: { fr: 'Stagiaire développeuse IA & full-stack', en: 'AI & full-stack developer intern' },
@@ -62,6 +54,7 @@ export const experience = [
   },
   {
     company: 'ForeverMo Group',
+    logo: '/companies/forevermo.png',
     place: { fr: 'Kairouan, Tunisie', en: 'Kairouan, Tunisia' },
     period: { fr: 'Juin – juil. 2025', en: 'Jun – Jul 2025' },
     role: { fr: 'Stagiaire développeuse full-stack', en: 'Full-stack developer intern' },

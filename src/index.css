@@ -668,43 +668,31 @@ a.tile:hover, .tile.lift:hover { transform: translateY(-4px); box-shadow: var(--
 .aurora span:nth-child(3) { width: 50%; height: 45%; left: 25%; bottom: 0; background: var(--glow-3); animation-delay: -9s; animation-duration: 19s; }
 @keyframes auroraFloat { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(8%, -6%) scale(1.12); } 100% { transform: translate(-6%, 8%) scale(.92); } }
 
-/* rotating badge with text on a circle */
-.orbit { position: absolute; z-index: 4; width: 128px; height: 128px; left: -46px; bottom: 16%; animation: rise .9s var(--ease) both 1.2s; }
-.orbit text { font-family: var(--display); font-size: 15.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; fill: var(--ink); }
-.orbit text, .orbit .orbit-star { transform-origin: 100px 100px; }
-.orbit text { animation: spin 22s linear infinite; }
-.orbit-disc { fill: color-mix(in srgb, var(--tile) 85%, transparent); stroke: var(--line); stroke-width: 1; }
-.orbit-star { fill: var(--rose); animation: pulseStar 3.2s ease-in-out infinite; }
-.portrait:hover .orbit text { animation-duration: 8s; }
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes pulseStar { 50% { transform: scale(.78) rotate(45deg); fill: var(--plum); } }
+/* portrait in the spotlight: larger arch, glowing gradient rim, light sweep */
+.hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(36px, 5vw, 80px); }
+.portrait { justify-self: center; width: min(100%, 470px); }
+.portrait::before { inset: 22px -22px -22px 22px; border-radius: 999px 999px 32px 32px; }
+.portrait-arch, .arch-ring { border-radius: 999px 999px 32px 32px; }
+@keyframes archReveal { from { clip-path: inset(100% 0 0 0 round 999px 999px 32px 32px); } to { clip-path: inset(0 0 0 0 round 999px 999px 32px 32px); } }
+.portrait-arch { box-shadow: 0 50px 90px -40px rgba(109, 34, 87, .55); }
+.arch-ring { position: absolute; inset: -9px; z-index: 0; padding: 2px; pointer-events: none;
+  background: conic-gradient(from var(--sheen, 0deg), var(--rose), var(--plum), var(--coral), var(--rose));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: sheen 10s linear infinite, fadeUp 1s ease both 1s; filter: drop-shadow(0 0 10px color-mix(in srgb, var(--rose) 45%, transparent)); }
+.portrait-arch::before { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, .45) 50%, transparent 65%);
+  transform: translateX(-120%); animation: photoSweep 1.6s var(--ease) 1.5s both; }
+.portrait:hover .portrait-arch::before { animation: photoSweep 1.2s var(--ease) both; }
+@keyframes photoSweep { from { transform: translateX(-120%); } to { transform: translateX(120%); } }
+.portrait-arch img { transition: transform 1.2s var(--ease), filter .6s; }
+.portrait:hover .portrait-arch img { transform: scale(1.04); filter: saturate(1.06); }
 
-/* floating glass cards with key facts */
-.float-badge { position: absolute; z-index: 4; display: grid; gap: 1px; padding: 10px 14px; border-radius: 16px;
-  background: color-mix(in srgb, var(--tile) 82%, transparent); border: 1px solid color-mix(in srgb, var(--rose) 18%, var(--line));
-  backdrop-filter: blur(12px) saturate(160%); -webkit-backdrop-filter: blur(12px) saturate(160%); box-shadow: var(--shadow);
-  animation: rise .9s var(--ease) both, bob 6s ease-in-out infinite; animation-delay: var(--d), calc(var(--d) + .9s); }
-.float-badge b { font-family: var(--display); font-weight: 700; font-size: 1.02rem; letter-spacing: -0.01em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; white-space: nowrap; }
-.float-badge span { font-size: .78rem; font-weight: 600; color: var(--ink-soft); white-space: nowrap; }
-.float-badge.fb0 { right: -34px; top: 14%; }
-.float-badge.fb1 { right: -18px; bottom: 6%; animation-duration: .9s, 7s; }
-@keyframes bob { 50% { transform: translateY(-8px); } }
-
-@media (max-width: 1100px) { .float-badge.fb0 { right: -12px; } .float-badge.fb1 { right: -6px; } .orbit { left: -24px; } }
 @media (max-width: 860px) {
-  .portrait { width: min(64%, 250px); margin-top: 18px; margin-bottom: 30px; }
-  .orbit { width: 88px; height: 88px; left: auto; right: -34px; top: -10px; bottom: auto; }
-  .float-badge { padding: 7px 11px; border-radius: 13px; }
-  .float-badge b { font-size: .86rem; }
-  .float-badge span { font-size: .7rem; }
-  .float-badge.fb0 { right: -46px; top: 54%; }
-  .float-badge.fb1 { right: auto; left: -40px; bottom: -16px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .portrait { order: -1; justify-self: center; width: min(70%, 290px); margin: 14px 0 22px; }
+  .portrait::before { inset: 14px -14px -14px 14px; }
+  .arch-ring { inset: -7px; }
   .aurora { inset: -8% -10%; }
-}
-@media (max-width: 420px) {
-  .float-badge.fb0 { right: -38px; }
-  .float-badge.fb1 { left: -34px; }
-  .orbit { right: -26px; }
 }
 
 /* ------------------------------------------------------------------ cursor light (desktop) */
@@ -785,7 +773,7 @@ body[data-cursor="on"] .cursor-glow, body[data-cursor="on"] .cursor-ring { opaci
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora span, .orbit, .orbit text, .orbit-star, .float-badge, .marquee-track, .proj.tilt::before, .page-glow, .hero .hero-grid, .icon-btn:hover svg { animation: none !important; }
+  .aurora span, .arch-ring, .portrait-arch::before, .marquee-track, .proj.tilt::before, .page-glow, .hero .hero-grid, .icon-btn:hover svg { animation: none !important; }
   .reveal { filter: none; }
   .section-head h2 { clip-path: none; }
   .section-head h2::before { opacity: 1; transform: none; }
@@ -795,3 +783,10 @@ body[data-cursor="on"] .cursor-glow, body[data-cursor="on"] .cursor-ring { opaci
   .marquee { transform: none; }
 }
 .name-shine span:nth-child(n+5) { font-style: italic; }
+
+/* company logos in the experience cards (always on a white plate, so they read in dark mode too) */
+.xp-logo { display: flex; align-items: center; justify-content: center; width: 100%; max-width: 180px; height: 76px; padding: 10px 14px; margin-bottom: 16px;
+  background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); transition: transform .4s var(--ease), box-shadow .4s; }
+.xp-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.xp:hover .xp-logo { transform: translateY(-3px) rotate(-1.5deg); box-shadow: var(--shadow-hover); }
+@media (max-width: 760px) { .xp-logo { max-width: 150px; height: 64px; } }

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLang } from '../context/LanguageContext';
-import { personal, heroBadges, orbitText } from '../data/portfolioData';
+import { personal } from '../data/portfolioData';
 import photo from '../assets/photo.jpg';
 import { Download, GitHub, LinkedIn, Mail, Pin } from './Icons';
 
@@ -96,20 +96,10 @@ export default function Hero() {
               <svg key={n} className={`spark s${n}`} viewBox="0 0 24 24"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z" /></svg>
             ))}
           </div>
+          <span className="arch-ring" aria-hidden="true" />
           <div className="portrait-arch">
             <img src={photo} alt={t.hero.photoAlt} width="880" height="1100" />
           </div>
-          <svg className="orbit" viewBox="0 0 200 200" aria-hidden="true">
-            <defs><path id="orbitPath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
-            <circle cx="100" cy="100" r="98" className="orbit-disc" />
-            <text><textPath href="#orbitPath" textLength="490">{tr(orbitText).repeat(2)}</textPath></text>
-            <path className="orbit-star" d="M100 76c1.4 13 10 21.6 24 24-14 2.4-22.6 11-24 24-1.4-13-10-21.6-24-24 14-2.4 22.6-11 24-24z" />
-          </svg>
-          {heroBadges.map((b, i) => (
-            <div key={i} className={`float-badge fb${i}`} style={{ '--d': `${1300 + i * 220}ms` }}>
-              <b>{tr(b.value)}</b><span>{tr(b.label)}</span>
-            </div>
-          ))}
         </figure>
       </div>
     </section>

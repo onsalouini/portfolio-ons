@@ -15,6 +15,11 @@ export default function Experience() {
             return (
               <li key={job.company} className="tile xp reveal">
                 <div className="xp-side">
+                  {job.logo && (
+                    <span className="xp-logo">
+                      <img src={job.logo} alt={`Logo ${job.company}`} loading="lazy" />
+                    </span>
+                  )}
                   <span className="xp-period">{tr(job.period)}</span>
                   <p className="xp-company">{job.company}</p>
                   <p className="xp-place">{tr(job.place)}</p>
