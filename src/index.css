@@ -866,3 +866,105 @@ body[data-cursor="on"] .cursor-glow, body[data-cursor="on"] .cursor-ring { opaci
   .intro-curtain { display: none; }
   .skill-proof, .skill-proof li { animation: none; }
 }
+
+/* ==================================================================
+   Refonte éditoriale (ui-ux-pro-max: Swiss / editorial, serif + sans + mono)
+   - semantic token layer (shadcn-style names) mapped onto the palette,
+     so light and dark stay consistent from one place
+   - numbered chapters, mono labels for dates / tags / figures
+   - quieter ornament, crisper cards, 44px touch targets
+================================================================== */
+:root {
+  --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  /* semantic layer */
+  --background: var(--bg);
+  --foreground: var(--ink);
+  --card: var(--tile);
+  --card-foreground: var(--ink);
+  --muted: var(--tile-2);
+  --muted-foreground: var(--ink-soft);
+  --border: var(--line);
+  --ring: var(--focus);
+  --primary: var(--rose);
+  --primary-foreground: var(--on-grad);
+  --accent: var(--plum);
+  /* crisper geometry */
+  --r-lg: 22px;
+  --r-md: 16px;
+  --dur-fast: .18s;
+  --dur: .24s;
+}
+
+/* cursor + touch basics */
+a, button, [role="button"], summary, label[for] { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+.icon-btn { width: 44px; height: 44px; }
+.lang-toggle { min-height: 44px; align-items: center; }
+@media (pointer: coarse) {
+  .chip { min-height: 44px; }
+  .nav-links a, .mobile-menu a { min-height: 44px; }
+  .tag-btn button { min-height: 32px; padding-block: 6px; }
+}
+
+/* ---- quieter ornament: one hero moment, not ten */
+.sparkles { display: none; }
+.page-glow span { opacity: .35; }
+.marquee { transform: none; border-block: 1px solid var(--border); }
+.section-head h2::before { display: none; }
+
+/* ---- chapters: numbered, hairline above, mono index */
+main { counter-reset: chapter; }
+main > .section { counter-increment: chapter; }
+.section-head { border-top: 1px solid var(--border); padding-top: clamp(18px, 2.4vw, 26px); margin-bottom: clamp(28px, 3.4vw, 40px); position: relative; }
+.section-head::before {
+  content: counter(chapter, decimal-leading-zero) '  ——';
+  flex-basis: 100%; font-family: var(--mono); font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--primary);
+}
+.section-head::after { content: ''; position: absolute; top: -1px; left: 0; width: 72px; height: 2px; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease) .1s; }
+.section-head[data-shown]::after { transform: scaleX(1); }
+.section-head h2::after { display: none; }
+.section-head h2 { padding-bottom: 0; }
+.section-head p { font-size: 1.02rem; }
+.contact-tile h2::before { content: counter(chapter, decimal-leading-zero) '  ——'; display: block; margin-bottom: 14px; font-family: var(--mono); font-size: .78rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); }
+
+/* ---- mono for the "data" voice: dates, tags, figures, eyebrows */
+.hero-role, .xp-period, .edu-period, .cert-date, .tags li, .tag-btn button, .cover .ctx, .result, .float-badge span, .activity-role, .lang-toggle span, .skill-proof em {
+  font-family: var(--mono); letter-spacing: .01em;
+}
+.hero-role { font-size: .82rem; text-transform: uppercase; letter-spacing: .08em; }
+.xp-period, .edu-period, .cert-date { font-size: .74rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; }
+.tags li, .tag-btn button { font-size: .76rem; font-weight: 500; }
+.tags li { border-radius: 8px; padding: 4px 9px; }
+.tag-btn button { border-radius: 8px; }
+.result { font-size: .8rem; }
+.result b { font-family: var(--display); }
+.highlights li > span:last-child { font-family: var(--mono); font-size: .76rem; font-weight: 500; letter-spacing: .03em; text-transform: uppercase; line-height: 1.45; }
+.highlights b { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 4.6vw, 3.6rem); letter-spacing: -0.02em; }
+.marquee em { font-size: clamp(1.25rem, 2.2vw, 1.7rem); }
+
+/* ---- cards: hairline, flatter, fast honest hover */
+.tile { box-shadow: none; border-color: var(--border); transition: transform var(--dur) var(--ease), box-shadow var(--dur), border-color var(--dur), background-color .3s; }
+a.tile:hover, .tile.lift:hover, .xp.tile:hover, .skill.tile:hover, .cert-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: color-mix(in srgb, var(--primary) 32%, var(--border)); }
+.highlights { box-shadow: none; }
+.nav-pill { box-shadow: 0 1px 0 rgba(60, 20, 50, .03); }
+
+/* ---- hero: editorial meta row */
+.hero h1 { letter-spacing: -0.03em; }
+.hero-meta { border-top-style: dashed; }
+.hero-available { font-family: var(--mono); font-size: .8rem; font-weight: 500; letter-spacing: .02em; }
+
+/* ---- experience: dates aligned like a ledger */
+.xp-side { border-right-style: solid; }
+.xp ul.points li::marker { content: '— '; color: var(--primary); }
+
+/* ---- footer: a signature line */
+.footer { border-top: 1px solid var(--border); margin-top: clamp(40px, 6vw, 72px); padding-top: 32px; }
+.footer p { font-family: var(--mono); font-size: .78rem; letter-spacing: .03em; }
+
+/* ---- hover timing per the guidelines (150–300 ms) */
+.btn, .chip, .icon-btn, .nav-links a, .text-link, .tags li, .tag-btn button { transition-duration: var(--dur-fast); }
+
+/* editorial fixes after review */
+.cover .ctx { font-size: .74rem; font-weight: 500; letter-spacing: .02em; }
+.tag-btn button { text-align: left; }
+.tag-btn sup { margin-left: 2px; }
