@@ -790,3 +790,79 @@ body[data-cursor="on"] .cursor-glow, body[data-cursor="on"] .cursor-ring { opaci
 .xp-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .xp:hover .xp-logo { transform: translateY(-3px) rotate(-1.5deg); box-shadow: var(--shadow-hover); }
 @media (max-width: 760px) { .xp-logo { max-width: 150px; height: 64px; } }
+
+/* ==================================================================
+   Dynamisme v2: page transitions, skill proofs, intro, constellation
+================================================================== */
+
+/* ---- view transitions (page morph + circular theme reveal) */
+.nav { view-transition-name: site-nav; }
+.detail-hero .cover { view-transition-name: proj-cover; }
+::view-transition-group(proj-cover) { animation-duration: .6s; animation-timing-function: cubic-bezier(.2, .8, .2, 1); }
+::view-transition-old(proj-cover), ::view-transition-new(proj-cover) { height: 100%; object-fit: cover; }
+::view-transition-old(root) { animation: vtOut .32s ease both; }
+::view-transition-new(root) { animation: vtIn .45s cubic-bezier(.2, .7, .2, 1) .08s both; }
+@keyframes vtOut { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vtIn { from { opacity: 0; transform: translateY(14px); } }
+/* theme: one flat snapshot, revealed in a circle (driven from the toggle) */
+:root[data-vt="theme"] * { view-transition-name: none !important; transition: none !important; }
+:root[data-vt="theme"]::view-transition-old(root), :root[data-vt="theme"]::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+:root[data-vt="theme"]::view-transition-old(root) { z-index: 0; }
+:root[data-vt="theme"]::view-transition-new(root) { z-index: 1; }
+
+/* ---- skills: tags that prove themselves */
+.tags .tag-btn { padding: 0; background: none; }
+.tag-btn button { display: inline-flex; align-items: baseline; gap: 4px; border: 1px solid transparent; cursor: pointer; font: inherit; font-size: .85rem; font-weight: 600;
+  padding: 3px 9px 3px 10px; border-radius: 999px; background: var(--acc-bg, var(--lilac)); color: var(--acc, var(--plum));
+  transition: transform .2s, background-color .2s, color .2s, border-color .2s, box-shadow .2s; }
+.tag-btn sup { font-size: .68rem; font-weight: 700; line-height: 1; opacity: .7; top: 0; vertical-align: super; }
+.tag-btn button:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--acc, var(--rose)) 45%, transparent); }
+.tag-btn button[aria-pressed="true"] { background: var(--acc, var(--rose)); color: var(--tile); box-shadow: 0 8px 18px -10px var(--acc, var(--rose)); }
+.tags li.tag-btn:hover { background: none; }
+.skill.has-proof { border-color: color-mix(in srgb, var(--acc) 45%, var(--line)); box-shadow: var(--shadow-hover); }
+.skill-proof { margin-top: 2px; padding: 12px 12px 10px; border-radius: 16px; background: var(--tile-2); border: 1px dashed color-mix(in srgb, var(--acc) 40%, var(--line));
+  animation: proofIn .45s var(--ease) both; }
+.skill-proof-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.skill-proof-head p { font-size: .85rem; color: var(--ink-soft); line-height: 1.35; }
+.skill-proof-head b { color: var(--ink); }
+.proof-close { flex: none; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; }
+.proof-close:hover { background: var(--acc-bg); color: var(--acc); }
+.proof-close .icon { width: 15px; height: 15px; }
+.skill-proof ul { list-style: none; display: grid; gap: 6px; margin-top: 8px; }
+.skill-proof li { animation: proofIn .45s var(--ease) both; animation-delay: calc(80ms + var(--i) * 60ms); }
+.skill-proof a { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: .9rem; transition: background-color .2s, transform .2s; }
+.skill-proof a:hover { background: var(--acc-bg); transform: translateX(3px); }
+.skill-proof a img { width: 22px; height: 22px; border-radius: 6px; object-fit: contain; background: #fff; flex: none; }
+.skill-proof a span { flex: 1; min-width: 0; }
+.skill-proof em { font-style: normal; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--acc-bg); color: var(--acc); }
+@keyframes proofIn { from { opacity: 0; transform: translateY(8px); } }
+
+/* ---- intro: the AO monogram draws itself */
+:root.intro { --intro: 1.1s; }
+.stagger { animation-delay: calc(var(--d, 0ms) + var(--intro, 0s)); }
+.hero h1 .letter { animation-delay: calc(120ms + var(--i) * 45ms + var(--intro, 0s)); }
+.portrait-arch, .portrait-arch img { animation-delay: calc(.2s + var(--intro, 0s)); }
+.portrait::before { animation-delay: calc(1.1s + var(--intro, 0s)); }
+.arch-ring { animation-delay: 0s, calc(1s + var(--intro, 0s)); }
+.portrait-arch::before { animation-delay: calc(1.5s + var(--intro, 0s)); }
+.hero-role > span:first-child::before { animation-delay: var(--intro, 0s); }
+.intro-curtain { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; pointer-events: none;
+  background: radial-gradient(60% 60% at 50% 45%, var(--blush), var(--bg) 70%); animation: curtainUp .55s cubic-bezier(.65, 0, .35, 1) 1.15s both; }
+.intro-mark { width: min(56vw, 300px); height: auto; overflow: visible; }
+.intro-mark text { font-family: var(--serif); font-style: italic; font-size: 128px; letter-spacing: -.04em;
+  fill: url(#introGrad); fill-opacity: 0; stroke: url(#introGrad); stroke-width: 1.2; stroke-dasharray: 520; stroke-dashoffset: 520;
+  animation: markDraw .95s cubic-bezier(.45, 0, .25, 1) .05s forwards, markFill .45s ease .7s forwards; }
+.intro-mark line { stroke: url(#introGrad); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; animation: markDraw .6s var(--ease) .6s forwards; }
+@keyframes markDraw { to { stroke-dashoffset: 0; } }
+@keyframes markFill { to { fill-opacity: 1; } }
+@keyframes curtainUp { to { opacity: 0; transform: scale(1.04); visibility: hidden; } }
+
+/* ---- constellation behind the hero */
+.constellation { position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .6;
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 40%, #000 35%, transparent 80%); mask-image: radial-gradient(120% 90% at 50% 40%, #000 35%, transparent 80%); }
+@media (max-width: 860px) { .constellation { opacity: .45; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-curtain { display: none; }
+  .skill-proof, .skill-proof li { animation: none; }
+}

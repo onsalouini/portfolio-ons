@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { navigateWithTransition } from '../viewTransition';
 import { useLang } from '../context/LanguageContext';
 import { projects, domains } from '../data/portfolioData';
 import ProjectCover from './ProjectCover';
@@ -8,6 +9,8 @@ import { GitHub } from './Icons';
 export default function Projects() {
   const { t, tr } = useLang();
   const [filter, setFilter] = useState('all');
+  const navigate = useNavigate();
+  const go = to => e => navigateWithTransition(e, navigate, to, e.currentTarget.closest('.proj')?.querySelector('.cover'));
 
   const featured = projects.filter(p => p.metric);
   const others = projects.filter(p => !p.metric);
@@ -43,7 +46,7 @@ export default function Projects() {
                   <p>{tr(p.summary)}</p>
                   <ul className="tags">{p.tech.slice(0, 6).map(x => <li key={x}>{x}</li>)}</ul>
                   <div className="proj-links">
-                    <Link className="text-link stretch" to={`/projet/${p.id}`}>{t.projects.details}</Link>
+                    <Link className="text-link stretch" to={`/projet/${p.id}`} onClick={go(`/projet/${p.id}`)}>{t.projects.details}</Link>
                     {p.github && (
                       <a className="text-link" href={p.github} target="_blank" rel="noreferrer"><GitHub /> {t.projects.code}</a>
                     )}
@@ -61,7 +64,7 @@ export default function Projects() {
               {shownOthers.map(p => (
                 <li key={p.id}>
                   {p.description && p.tech.length ? (
-                    <Link to={`/projet/${p.id}`}><strong>{tr(p.title)}</strong><p>{tr(p.summary)}</p></Link>
+                    <Link to={`/projet/${p.id}`} onClick={go(`/projet/${p.id}`)}><strong>{tr(p.title)}</strong><p>{tr(p.summary)}</p></Link>
                   ) : (
                     <><strong>{tr(p.title)}</strong><p>{tr(p.summary)}</p></>
                   )}

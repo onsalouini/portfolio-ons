@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { navigateWithTransition } from '../viewTransition';
 import { useLang } from '../context/LanguageContext';
 import { experience, projects } from '../data/portfolioData';
 
 export default function Experience() {
   const { t, tr } = useLang();
+  const navigate = useNavigate();
   return (
     <section className="section" id="experience">
       <div className="wrap">
@@ -33,7 +35,7 @@ export default function Experience() {
                   <ul className="points">{tr(job.points).map(p => <li key={p}>{p}</li>)}</ul>
                   <div className="xp-foot">
                     <ul className="tags">{job.tech.map(x => <li key={x}>{x}</li>)}</ul>
-                    <Link className="text-link" to={`/projet/${job.projectId}`}>{t.experience.seeProject}</Link>
+                    <Link className="text-link" to={`/projet/${job.projectId}`} onClick={e => navigateWithTransition(e, navigate, `/projet/${job.projectId}`)}>{t.experience.seeProject}</Link>
                   </div>
                 </div>
               </li>

@@ -4,6 +4,7 @@ import { useLang } from '../context/LanguageContext';
 import { personal } from '../data/portfolioData';
 import monogram from '../assets/monogram.png';
 import { Download, Menu, Close, Sun, Moon } from './Icons';
+import { withTransition } from '../viewTransition';
 
 const SECTIONS = ['experience', 'projects', 'skills', 'education', 'certifications', 'contact'];
 
@@ -16,11 +17,26 @@ function currentTheme() {
 function ThemeToggle() {
   const { t } = useLang();
   const [theme, setTheme] = useState(currentTheme);
-  const toggle = () => {
+  const toggle = e => {
     const next = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    try { localStorage.setItem('portfolio-theme', next); } catch (e) { /* ignore */ }
-    setTheme(next);
+    const apply = () => {
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('portfolio-theme', next); } catch (err) { /* ignore */ }
+      setTheme(next);
+    };
+    // the new theme spreads out in a circle from the button
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    const vt = withTransition(apply, 'theme');
+    if (!vt) return;
+    const end = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    vt.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${end}px at ${x}px ${y}px)`] },
+        { duration: 700, easing: 'cubic-bezier(.65, 0, .35, 1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    }).catch(() => {});
   };
   return (
     <button type="button" className="icon-btn" onClick={toggle} aria-label={theme === 'dark' ? t.theme.light : t.theme.dark}>

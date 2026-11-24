@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { navigateWithTransition } from '../viewTransition';
 import { useLang } from '../context/LanguageContext';
 import { projects } from '../data/portfolioData';
 import Navbar from './Navbar';
@@ -111,7 +112,9 @@ export default function ProjectDetail() {
   const { t, tr } = useLang();
   const p = projects.find(x => x.id === id);
 
-  useEffect(() => { window.scrollTo(0, 0); }, [id]);
+  const navigate = useNavigate();
+  // layout effect: the page is at the top before a view transition takes its snapshot
+  useLayoutEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, [id]);
   useEffect(() => {
     document.title = p ? `${tr(p.title)} — Ons Alouini` : 'Ons Alouini';
     return () => { document.title = 'Ons Alouini — Data Science & IA'; };
@@ -123,7 +126,7 @@ export default function ProjectDetail() {
       <Navbar />
       <main className="detail">
         <div className="wrap">
-          <Link className="back" to="/#projects"><ArrowLeft /> {t.detail.back}</Link>
+          <Link className="back" to="/#projects" onClick={e => navigateWithTransition(e, navigate, '/#projects')}><ArrowLeft /> {t.detail.back}</Link>
 
           {!p ? (
             <p className="empty">{t.detail.notFound}</p>

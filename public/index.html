@@ -26,6 +26,13 @@
     <meta name="twitter:image" content="https://portfolio-ons-dy34.vercel.app/og-image.jpg" />
     <script>
       try { var th = localStorage.getItem('portfolio-theme'); if (th === 'light' || th === 'dark') document.documentElement.setAttribute('data-theme', th); } catch (e) {}
+      // monogram intro: once per visit, home page only, never with reduced motion
+      try {
+        if (location.pathname === '/' && !sessionStorage.getItem('intro-seen') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.documentElement.classList.add('intro');
+          sessionStorage.setItem('intro-seen', '1');
+        }
+      } catch (e) {}
     </script>
   </head>
   <body>

@@ -54,7 +54,14 @@ export const translations = {
       next: 'Capture suivante',
     },
     stats: { label: 'Chiffres clés' },
-    skills: { title: 'Compétences' },
+    skills: {
+      title: 'Compétences',
+      intro: 'Cliquez sur une compétence pour voir où je l’ai mise en pratique.',
+      used: n => (n > 1 ? `Mise en pratique dans ${n} réalisations` : 'Mise en pratique dans 1 réalisation'),
+      internship: 'Stage',
+      close: 'Fermer',
+      count: n => `${n} réalisation${n > 1 ? 's' : ''}`,
+    },
     certs: {
       title: 'Certifications et activités',
       intro: 'Certifications obtenues, formations suivies et événements auxquels j’ai participé.',
@@ -144,7 +151,14 @@ export const translations = {
       next: 'Next screenshot',
     },
     stats: { label: 'Key figures' },
-    skills: { title: 'Skills' },
+    skills: {
+      title: 'Skills',
+      intro: 'Click a skill to see where I put it into practice.',
+      used: n => (n > 1 ? `Put into practice in ${n} projects` : 'Put into practice in 1 project'),
+      internship: 'Internship',
+      close: 'Close',
+      count: n => `${n} project${n > 1 ? 's' : ''}`,
+    },
     certs: {
       title: 'Certifications & activities',
       intro: 'Certifications earned, courses completed and events I took part in.',

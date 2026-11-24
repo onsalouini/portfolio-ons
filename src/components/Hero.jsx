@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useLang } from '../context/LanguageContext';
 import { personal } from '../data/portfolioData';
 import photo from '../assets/photo.jpg';
+import Constellation from './Constellation';
 import { Download, GitHub, LinkedIn, Mail, Pin } from './Icons';
 
 const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -56,6 +57,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="top" ref={hero}>
+      <Constellation />
       <div className="spotlight" aria-hidden="true" />
       <div className="wrap hero-grid">
         <div className="hero-text">
