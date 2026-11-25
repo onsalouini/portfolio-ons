@@ -1,13 +1,14 @@
 import React from 'react';
 import { useLang } from '../context/LanguageContext';
 import { education, languages, softSkills } from '../data/portfolioData';
+import SplitTitle from './SplitTitle';
 
 export default function Education() {
   const { t, tr } = useLang();
   return (
     <section className="section" id="education">
       <div className="wrap">
-        <div className="section-head reveal"><h2>{t.education.title}</h2></div>
+        <div className="section-head reveal"><SplitTitle text={t.education.title} /></div>
         <div className="edu-grid">
           <div className="tile edu-main reveal">
             <ul className="edu-list">

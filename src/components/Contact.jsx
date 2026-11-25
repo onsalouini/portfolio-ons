@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useLang } from '../context/LanguageContext';
 import { personal } from '../data/portfolioData';
-import { Mail, Phone, GitHub, LinkedIn } from './Icons';
+import { Mail, Phone, GitHub, LinkedIn, Copy, Check } from './Icons';
+import SplitTitle from './SplitTitle';
 
 const SERVICE_ID = 'service_r5p9p7e';
 const TEMPLATE_ID = 'template_yw8hpzr';
@@ -12,6 +13,21 @@ export default function Contact() {
   const { t } = useLang();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | missing | error
+
+  // copy the address, with a short "copied" state (button + screen-reader status)
+  const [copied, setCopied] = useState(false);
+  const timer = useRef(0);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(personal.email);
+    } catch (err) {
+      return; // clipboard refused: the mailto link is still there
+    }
+    setCopied(true);
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => setCopied(false), 2000);
+  };
 
   const onChange = e => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -41,10 +57,16 @@ export default function Contact() {
       <div className="wrap">
       <div className="tile contact-tile reveal">
         <div>
-          <h2>{t.contact.title}</h2>
+          <SplitTitle text={t.contact.title} />
           <p className="contact-lead">{t.contact.lead}</p>
           <ul className="contact-direct" aria-label={t.contact.direct}>
-            <li><a href={`mailto:${personal.email}`}><span className="bubble"><Mail /></span>{personal.email}</a></li>
+            <li className="mail-row">
+              <a href={`mailto:${personal.email}`}><span className="bubble"><Mail /></span>{personal.email}</a>
+              <button type="button" className={`copy-btn${copied ? ' is-done' : ''}`} onClick={copy} aria-label={copied ? t.contact.copied : t.contact.copy} title={t.contact.copy}>
+                <span className="copy-ico"><Copy /></span><span className="copy-ico ok"><Check /></span>
+              </button>
+              <span className="sr-only" role="status">{copied ? t.contact.copied : ''}</span>
+            </li>
             <li><a href={`tel:${personal.phone.replace(/\s/g, '')}`}><span className="bubble"><Phone /></span>{personal.phone}</a></li>
             <li><a href={personal.linkedin} target="_blank" rel="noreferrer"><span className="bubble"><LinkedIn /></span>LinkedIn</a></li>
             <li><a href={personal.github} target="_blank" rel="noreferrer"><span className="bubble"><GitHub /></span>GitHub</a></li>

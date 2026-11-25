@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { navigateWithTransition } from '../viewTransition';
 import { useLang } from '../context/LanguageContext';
 import { experience, projects } from '../data/portfolioData';
+import SplitTitle from './SplitTitle';
 
 export default function Experience() {
   const { t, tr } = useLang();
   const navigate = useNavigate();
+  const list = useRef(null);
+
+  // A thread on the left fills as the reader scrolls through the internships;
+  // each card's dot lights up when the thread reaches it.
+  useEffect(() => {
+    const el = list.current;
+    if (!el) return undefined;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const r = el.getBoundingClientRect();
+      const line = window.innerHeight * 0.6;
+      const p = Math.min(1, Math.max(0, (line - r.top) / r.height));
+      el.style.setProperty('--thread', p.toFixed(4));
+      el.querySelectorAll(':scope > .xp').forEach(card => {
+        const on = card.getBoundingClientRect().top + 40 < line;
+        if (on !== card.hasAttribute('data-reached')) card.toggleAttribute('data-reached', on);
+      });
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); if (frame) cancelAnimationFrame(frame); };
+  }, []);
   return (
     <section className="section" id="experience">
       <div className="wrap">
-        <div className="section-head reveal"><h2>{t.experience.title}</h2></div>
-        <ol className="xp-list">
+        <div className="section-head reveal"><SplitTitle text={t.experience.title} /></div>
+        <ol className="xp-list" ref={list}>
           {experience.map(job => {
             const project = projects.find(p => p.id === job.projectId);
             return (

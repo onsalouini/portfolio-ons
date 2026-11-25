@@ -5,6 +5,7 @@ import { skills } from '../data/portfolioData';
 import { countFor, matchesFor } from '../skillMatch';
 import { navigateWithTransition } from '../viewTransition';
 import { GlyphML, GlyphNLP, GlyphCV, GlyphMLOps, GlyphWeb, Award, Close } from './Icons';
+import SplitTitle from './SplitTitle';
 
 // Accent and icon per group, in the order of the data file
 const LOOK = [
@@ -55,7 +56,7 @@ export default function Skills() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <h2>{t.skills.title}</h2>
+            <SplitTitle text={t.skills.title} />
             <p style={{ marginTop: 10 }}>{t.skills.intro}</p>
           </div>
         </div>

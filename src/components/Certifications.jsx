@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 import { certifications, activities } from '../data/portfolioData';
 import { Award, ArrowUpRight } from './Icons';
+import SplitTitle from './SplitTitle';
 
 export default function Certifications() {
   const { t, tr } = useLang();
@@ -14,7 +15,7 @@ export default function Certifications() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <h2>{t.certs.title}</h2>
+            <SplitTitle text={t.certs.title} />
             <p style={{ marginTop: 10 }}>{t.certs.intro}</p>
           </div>
         </div>

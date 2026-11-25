@@ -79,6 +79,8 @@ export const translations = {
     },
     contact: {
       title: 'Contact',
+      copy: 'Copier l’adresse e-mail',
+      copied: 'Adresse copiée',
       lead: 'Une offre de stage, une question sur un projet ? Écrivez-moi, je réponds rapidement.',
       name: 'Nom',
       email: 'E-mail',
@@ -176,6 +178,8 @@ export const translations = {
     },
     contact: {
       title: 'Contact',
+      copy: 'Copy email address',
+      copied: 'Address copied',
       lead: 'An internship offer, a question about a project? Write to me, I answer quickly.',
       name: 'Name',
       email: 'Email',

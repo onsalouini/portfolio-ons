@@ -5,6 +5,7 @@ import { useLang } from '../context/LanguageContext';
 import { projects, domains } from '../data/portfolioData';
 import ProjectCover from './ProjectCover';
 import { GitHub } from './Icons';
+import SplitTitle from './SplitTitle';
 
 export default function Projects() {
   const { t, tr } = useLang();
@@ -22,7 +23,7 @@ export default function Projects() {
       <div className="wrap">
         <div className="section-head reveal">
           <div>
-            <h2>{t.projects.title}</h2>
+            <SplitTitle text={t.projects.title} />
             <p style={{ marginTop: 10 }}>{t.projects.intro}</p>
           </div>
           <div className="filters" role="group" aria-label={t.projects.filterLabel}>

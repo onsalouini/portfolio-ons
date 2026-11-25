@@ -82,3 +82,9 @@ export const GlyphMLOps = () => (
 export const GlyphWeb = () => (
   <svg {...glyph}><rect x="12" y="20" width="96" height="76" rx="10" /><path d="M12 38h96" /><circle cx="24" cy="29" r="2.5" /><circle cx="33" cy="29" r="2.5" /><path d="M46 60 36 70l10 10M74 60l10 10-10 10M64 56l-8 28" /></svg>
 );
+export const Copy = () => (
+  <svg {...base}><rect x="9" y="9" width="11" height="11" rx="2" /><path d="M5 15V6a2 2 0 0 1 2-2h9" /></svg>
+);
+export const Check = () => (
+  <svg {...base}><path d="m5 12.5 4.5 4.5L19 7.5" /></svg>
+);
